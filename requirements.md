@@ -32,36 +32,25 @@
 
 ## Use Cases
 
-1. Use Case Name (Should match functional requirement name)
-- **Pre-condition:** <can be a list or short description> Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+1. Send messages to followers
+- **Pre-condition:** Sender should have receiver as a follower.
 
-- **Trigger:** <can be a list or short description> Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. 
+- **Trigger:** Sender identifies the receiver and inputs the text that would be sent as a message. 
 
 - **Primary Sequence:**
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Et sequi incidunt 
-  3. Quis aute iure reprehenderit
-  4. ... 
-  5. ...
-  6. ...
-  7. ...
-  8. ...
-  9. ...
-  10. <Try to stick to a max of 10 steps>
+  1. Select a receiver.
+  2. Type a text in the box that needs to be sent. 
+  3. Press send to send the text.
+  4. Receiver receives the text on their account.
 
-- **Primary Postconditions:** <can be a list or short description> 
+- **Primary Postconditions:** The receiver sees the text on their account.  
 
-- **Alternate Sequence:** <you can have more than one alternate sequence to describe multiple issues that may arise>
+- **Alternate Sequence:** The receiver may not be a follower of the sender
   
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
-
-- **Alternate Sequence <optional>:** <you can have more than one alternate sequence to describe multiple issues that may arise>
-  
-  1. Ut enim ad minim veniam, quis nostrum e
-  2. Ut enim ad minim veniam, quis nostrum e
-  3. ...
+  1. The text shows under requests tab to receiver.
+  2. Receiver can accept the sender and receive any future texts.
+  3. Receiver can block the sender.
+ 
 2. Use Case Name (Should match functional requirement name)
    ...
