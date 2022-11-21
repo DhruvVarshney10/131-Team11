@@ -15,6 +15,7 @@
 11.Comment/Like a post
 12.Delete/Edit a post
 13.See followers and following users
+14.Create a Post
 
 
 ## Non-functional Requirements
