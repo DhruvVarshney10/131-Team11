@@ -2,25 +2,32 @@
 
 ## Functional Requirements
 
-1. requirement
-2. requirement
-3. requirement
-4. requirement
-5. requirement
-6. requirement
-7. requirement
-8. requirement
-9. requirement
-10. requirement
-11. requirement
-12. requirement
+1. Login
+2. Logout
+3. Create new account
+4. delete account
+5. User home page (users can see messages of users they follow)
+6. Send messages to followers
+7. Follow Users
+8. Search users/Friends
+9. Block a User/Friend
+10.Re-tweet a tweet
+11.Comment/Like a post
+12.Delete/Edit a post
+13.See followers and following users
+
 
 ## Non-functional Requirements
 
-1. non-functional
-2. non-functional
-3. non-functional
-4. non-functional
+1. Speed & Smoothness - The app should be capable of managing an increasing load of users & data. 
+2. Security
+    A. Account Locking - After a certain number of login attempts, the system could lockt he user’s account is locked and protect from hackers.
+    B. Strong Password Generation - Ensure the the user created passwords are strong, (contain atleast a capital lette and a number)
+3. Compatibility - Should be able to run on any Web browser ?
+4. Real-Time updating feed - The feed updates in real time ?
+5. Limited Length Tweets - Each tweet is limited to 120 words. 
+6. Tag Other users in a tweet - and the tweets sows up on their feed aswell. 
+
 
 ## Use Cases
 
