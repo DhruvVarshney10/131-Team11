@@ -50,5 +50,24 @@
   2. Receiver can accept the sender and receive any future texts.
   3. Receiver can block the sender.
  
-2. Use Case Name (Should match functional requirement name)
-   ...
+2. Adding an image to a post
+- **Pre-conditions:** User should create a draft for the post and include an image in .jpeg format.
+
+- **Trigger:** User uploads an image on the draft post before posting it.
+
+- **Primary Sequence:**
+  
+  1. Create a post.
+  2. Select and upload an image.
+  3. Preview the image and change if needed to.
+  4. Post the draft on the profile.
+
+- **Primary Postconditions:** The post shows up on the user's profile
+
+- **Alternate Sequence:** The image may not be in a .jpeg format.
+
+  1. User tries to upload an image of an unsupported type.
+  2. User gets an error message saying "unsupported format. Use .jpeg".
+  3. User can re upload their image in .jpeg format.
+
+3. USE CASE 3
