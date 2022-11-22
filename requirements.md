@@ -6,14 +6,14 @@
 4. delete account
 5. User home page (users can see messages of users they follow)
 6. Send messages to followers
-7. Follow Users
+7. Adding an image to a post
 8. Search users/Friends
 9. Block a User/Friend
-10.Re-tweet a tweet
-11.Comment/Like a post
-12.Delete/Edit a post
-13.See followers and following users
-14.Create a Post
+10. Re-tweet a tweet
+11. Comment/Like a post
+12. Delete/Edit a post
+13. See followers and following users
+14. Create a Post
 
 
 ## Non-functional Requirements
