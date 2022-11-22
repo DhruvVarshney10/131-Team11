@@ -4,17 +4,14 @@
 2. Logout
 3. Create new account
 4. delete account
-5. User home page (users can see messages of users they follow)
-6. Send messages to followers
-7. Adding an image to a post
-8. Search users/Friends
-9. Block a User/Friend
-10. Re-tweet a tweet
-11. Comment/Like a post
-12. Delete/Edit a post
-13. See followers and following users
-14. Create a Post
-
+5. User home page (users can see tweets of users they follow)
+6. Create a Post
+7. Adding an image to a tweet
+8. Re-tweet a tweet
+9. Comment/Like a tweet
+10. Delete/Edit a tweet
+11. Search users/Friends
+12. Send messages to followers
 
 ## Non-functional Requirements
 
