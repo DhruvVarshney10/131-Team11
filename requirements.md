@@ -3,30 +3,25 @@
 1. Login
 2. Logout
 3. Create new account
-4. delete account
-5. User home page (users can see messages of users they follow)
-6. Send messages to followers
-7. Adding an image to a post
-8. Search users/Friends
-9. Block a User/Friend
-10. Re-tweet a tweet
-11. Comment/Like a post
-12. Delete/Edit a post
-13. See followers and following users
-14. Create a Post
-
+4. Delete account
+5. User home page (users can see tweets of users they follow)
+6. Create a Post
+7. Adding an image to a tweet
+8. Re-tweet a tweet
+9. Comment/Like a tweet
+10. Delete/Edit a tweet
+11. Search users/Friends
+12. Send messages to followers
 
 ## Non-functional Requirements
 
-1. Speed & Smoothness - The app should be capable of managing an increasing load of users & data. 
-2. Security
-    A. Account Locking - After a certain number of login attempts, the system could lockt he user’s account is locked and protect from hackers.
-    B. Strong Password Generation - Ensure the the user created passwords are strong, (contain atleast a capital lette and a number)
-3. Compatibility - Should be able to run on any Web browser ?
-4. Real-Time updating feed - The feed updates in real time ?
-5. Limited Length Tweets - Each tweet is limited to 120 words. 
-6. Tag Other users in a tweet - and the tweets sows up on their feed aswell. 
+1. Limited Length Tweets - A tweet cannot exceed 140 words
 
+2. Compatibility - The webApp should run on Chrome Web Browser
+
+3. The image format for a tweet must be .png or .jpg
+
+4. All passwords must be at least 8 characters, 1 capital, 1 number
 
 ## Use Cases
 
@@ -50,5 +45,106 @@
   2. Receiver can accept the sender and receive any future texts.
   3. Receiver can block the sender.
  
-2. Use Case Name (Should match functional requirement name)
-   ...
+2. Adding an image to a post
+- **Pre-conditions:** User should create a draft for the post and include an image in .jpeg format.
+
+- **Trigger:** User uploads an image on the draft post before posting it.
+
+- **Primary Sequence:**
+  
+  1. Create a post.
+  2. Select and upload an image.
+  3. Preview the image and change if needed to.
+  4. Post the draft on the profile.
+
+- **Primary Postconditions:** The post shows up on the user's profile
+
+- **Alternate Sequence:** The image may not be in a .jpeg format.
+
+  1. User tries to upload an image of an unsupported type.
+  2. User gets an error message saying "unsupported format. Use .jpeg".
+  3. User can re upload their image in .jpeg format.
+
+3. Search users/Friends
+- **Pre-conditions:** User should select a search button to search up someone
+
+- **Trigger:** User inputs a username and clicks search
+
+- **Primary Sequence:**
+  
+  1. Select search from main page.
+  2. Type username or keyword for username to search.
+  3. Press button to search for that username
+  4. All users who have the keyword searched or the exact username are displayed
+
+- **Primary Postconditions:** The page displays the user with that username
+
+- **Alternate Sequence:** No users are available with the username chosen
+
+  1. User tries to search for a keyword or username that no users match
+  2. Search page displays that there are no users of that name.
+  3. User can type in a new user to search for.
+
+4. User home page
+- **Pre-conditions:** User has created an account and is logged in.
+
+- **Trigger:** User logs into their account and is taken to the home page.
+
+- **Primary Sequence:**
+  
+  1. User completes log-in sequence and enters their account.
+  2. User reaches the user home page
+  3. User can see posts from other users that they follow.
+  4. User can see other sections of the webpage they can access such as messages and search.
+
+- **Primary Postconditions:** The user can see the posts of users that they choose.
+
+- **Alternate Sequence:** The user is not following any users who have created posts.
+
+  1. User enters account.
+  2. User sees a message saying that they are not following any accounts.
+  3. User is encouraged to create a post or search other users to follow.
+
+5. Comment/like a tweet 
+
+- **Pre-conditions:** User has an account, is logged in and has some posts of their own or follows people who have posts.
+
+- **Trigger:** User clicks on the comment/like button under the tweet.
+
+- **Primary Sequence:**
+  
+  1. User completes the log-in procedure and redirected to their account's home page.
+  2. On the home page the user can view their own posts/users they follow.
+  3. The user clicks click on "Like" to like a post or "Comment" to leave a comment on one.  
+  4. When the user clicks on comment the user will be prompted to leave a short message (about 50 words) under the post, which will be posted on clicking "Done".
+
+- **Primary Postconditions:** The user can see their like/ comment under the users tweet.
+
+- **Alternate Sequence:** The user has not created any posts/is not following any users who have created posts.
+
+  1. User enters account.
+  2. The User doesnot see any posts and sees the message "No posts to show".
+  3. User is encouraged to either create a post or search for other users to follow who have created one.
+
+
+6. Delete/edit a tweet 
+
+- **Pre-conditions:** User has an account, is logged in and has some posts on their account
+
+- **Trigger:** User clicks on the delete/edit button under the tweet.
+
+- **Primary Sequence:**
+  
+  1. User completes the log-in procedure and redirected to their account's home page.
+  2. On the home page the user can view their own posts.
+  3. The user clicks click on "Edit" to edit a post or "Delete" to delete it.  
+  4. When the user clicks on Edit the user will be prompted to edit their post, which will be saved on clicking "Done".
+  5. If the user selects "Delete" they will be asked - "Would you like to delete this post", and it will be deleted if "Yes" is selected.  
+
+- **Primary Postconditions:** The user can see edit their exisiting tweets or delete a tweet.
+
+- **Alternate Sequence:** The user has not created any posts.
+
+  1. User enters account.
+  2. The User doesnot see any posts and sees the message "No posts to show".
+  3. User is encouraged to either create a post to edit/delete it.
