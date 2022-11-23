@@ -65,4 +65,44 @@
   2. User gets an error message saying "unsupported format. Use .jpeg".
   3. User can re upload their image in .jpeg format.
 
-3. USE CASE 3
+3. Search users/Friends
+- **Pre-conditions:** User should select a search button to search up someone
+
+- **Trigger:** User inputs a username and clicks search
+
+- **Primary Sequence:**
+  
+  1. Select search from main page.
+  2. Type username or keyword for username to search.
+  3. Press button to search for that username
+  4. All users who have the keyword searched or the exact username are displayed
+
+- **Primary Postconditions:** The page displays the user with that username
+
+- **Alternate Sequence:** No users are available with the username chosen
+
+  1. User tries to search for a keyword or username that no users match
+  2. Search page displays that there are no users of that name.
+  3. User can type in a new user to search for.
+
+4. User home page
+- **Pre-conditions:** User has created an account and is logged in.
+
+- **Trigger:** User logs into their account and is taken to the home page.
+
+- **Primary Sequence:**
+  
+  1. User completes log-in sequence and enters their account.
+  2. User reaches the user home page
+  3. User can see posts from other users that they follow.
+  4. User can see other sections of the webpage they can access such as messages and search.
+
+- **Primary Postconditions:** The user can see the posts of users that they choose.
+
+- **Alternate Sequence:** The user is not following any users who have created posts.
+
+  1. User enters account.
+  2. User sees a message saying that they are not following any accounts.
+  3. User is encouraged to create a post or search other users to follow.
+
+5. MORE USE CASES
