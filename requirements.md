@@ -28,7 +28,7 @@
 1. Send messages to followers
 - **Pre-condition:** Sender should have receiver as a follower.
 
-- **Trigger:** Sender identifies the receiver and inputs the text that would be sent as a message. 
+- **Trigger:** Pressing the Send Message Button
 
 - **Primary Sequence:**
   
@@ -46,9 +46,9 @@
   3. Receiver can block the sender.
  
 2. Adding an image to a post
-- **Pre-conditions:** User should create a draft for the post and include an image in .jpeg format.
+- **Pre-conditions:** User should create a draft for the post
 
-- **Trigger:** User uploads an image on the draft post before posting it.
+- **Trigger:** Pressing the Upload Image option in your tweet
 
 - **Primary Sequence:**
   
@@ -105,4 +105,45 @@
   2. User sees a message saying that they are not following any accounts.
   3. User is encouraged to create a post or search other users to follow.
 
-5. MORE USE CASES
+5. Post a Tweet
+- **Pre-condition:** The user is Logged in & on his Home page
+
+- **Trigger:** Pressing the New Tweet Button
+
+- **Primary Sequence:**
+  
+  1. The user presses the "New Tweet" Button
+  2. A prompt shows up where they can draft a message upto 140 characters
+  3. The user can press the "Post tweet" button to Post the Tweet
+  4. The post appear of the user's Home page(Feed)
+
+- **Primary Postconditions:** The post appear of the user's Home page(Feed) 
+
+- **Alternate Sequence:** The draft may be over 140 character limit
+  
+  1. An error is prompted "Tweet is over character limit"
+  2. The user edits his tweet to match the character limit  
+  3. The user can press the "Post tweet" button to Post the Tweet
+  4. The post appear of the user's Home page(Feed) 
+
+6. Delete/edit a tweet 
+
+- **Pre-conditions:** User has an account, is logged in and has some posts on their account
+
+- **Trigger:** User clicks on the delete/edit button under the tweet.
+
+- **Primary Sequence:**
+
+  1. User completes the log-in procedure and redirected to their account's home page.
+  2. On the home page the user can view their own posts.
+  3. The user clicks click on "Edit" to edit a post or "Delete" to delete it.  
+  4. When the user clicks on Edit the user will be prompted to edit their post, which will be saved on clicking "Done".
+  5. If the user selects "Delete" they will be asked - "Would you like to delete this post", and it will be deleted if "Yes" is selected.  
+
+- **Primary Postconditions:** Edited tweet appears in the on the Home page or is deleted
+
+- **Alternate Sequence:** The user has not created any posts.
+
+  1. User enters account.
+  2. The User doesnot see any posts and sees the message "No posts to show".
+  3. User is encouraged to either create a post to edit/delete it.
