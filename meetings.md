@@ -5,7 +5,7 @@
 
 Meeting Type : In person & Virtual 
 
-Atendees: Gunraj Singh, Anchal Mandavia (IN-PERSON) & Dhruv Varshney, Ari Grady (VIRTUAL)
+Attendees: Gunraj Singh, Anchal Mandavia (IN-PERSON) & Dhruv Varshney, Ari Grady (VIRTUAL)
 
 FIRST GENERAL MEETING
 
@@ -21,7 +21,7 @@ Team Updates:
 
 Meeting Type : In person & Virtual 
 
-Atendees: Gunraj Singh, Anchal Mandavia, Dhruv Varshney (IN-PERSON), Ari Grady (VIRTUAL)
+Attendees: Gunraj Singh, Anchal Mandavia, Dhruv Varshney (IN-PERSON), Ari Grady (VIRTUAL)
 
 
 Team Updates:
@@ -35,7 +35,7 @@ All teammates will continue to work on the requirments and meet in the next meet
 
 Meeting Type : Virtual 
 
-Atendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
 
 
 Team Updates:
@@ -49,7 +49,7 @@ All teammates will continue to work & brainstorm on the requirments and meet in 
 
 Meeting Type : Inperson 
 
-Atendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
 
 
 Team Updates:
