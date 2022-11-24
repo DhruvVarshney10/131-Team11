@@ -1,34 +1,63 @@
-## Instructions
-
-- Delete this block before adding to your repository. 
-
-- Delete any instructions you see below they will be within < >
-  
-- This schedule should reflect the meetings from the start of the project until the end of the semester.
-
-- Write at least 1 meeting per week until the end of the semester
-
-  
 ## Meetings
 
 
-### 2022-04-15 at 13:30
-<meeting template would go here>
-<only fill in template once you had the meeting>
-<see example on the last date>
-<use date format YYYY-MM-DD at HH:MM>
+### 2022-11-15 at 10:45 AM
 
-### 2022-04-22 at 10:30
-<meeting template would go here>
-<only fill in template once you had the meeting>
+Meeting Type : In person & Virtual 
 
-### 2022-04-29 at 10:30
-- Who attended the meeting
-- Team updates (15min or less)
-  <Each team member gives an update of what they did from the last meeting and what they plan to do next. If they are stuck, bring it up here to see if others can help.>
-  - <name> worked on X. Will work on Y next. 
+Atendees: Gunraj Singh, Anchal Mandavia (IN-PERSON) & Dhruv Varshney, Ari Grady (VIRTUAL)
 
-- pair-programming (optional) (25 mins)
-  <- Pair program on one part of the project. Driver will be the person responsible for that requirement.>
+FIRST GENERAL MEETING
 
-- Summarize group progress
+Team Updates:
+- Gunraj - created a google doc and group chat to brainstorm ideas
+- Anchal - Created Git repo and added files 
+- Dhruv - Brainstormed ideas for reqs. 
+- Ari - Brainstormed ideas for reqs. 
+
+
+
+### 2022-11-17 at 10:45 
+
+Meeting Type : In person & Virtual 
+
+Atendees: Gunraj Singh, Anchal Mandavia, Dhruv Varshney (IN-PERSON), Ari Grady (VIRTUAL)
+
+
+Team Updates:
+- Anchal - Worked on requirements 
+- Gunraj - Worked on requirements 
+- Dhruv -  Worked on requirements 
+- Ari - Worked on requirements 
+All teammates will continue to work on the requirments and meet in the next meeting
+
+### 2022-11-19 at 1:00 
+
+Meeting Type : Virtual 
+
+Atendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+
+Team Updates:
+- Anchal - Worked on requirements 
+- Gunraj - Worked on requirements 
+- Dhruv -  Created a new repo, Worked on requirements
+- Ari - Worked on requirements 
+All teammates will continue to work & brainstorm on the requirments and meet in the next meeting
+
+### 2022-11-21 at 10:00 
+
+Meeting Type : Inperson 
+
+Atendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+
+Team Updates:
+- Anchal - Added new branch and requirements. 
+- Gunraj - Added new branch and requirements. 
+- Dhruv -  Added new branch and requirements. 
+- Ari - Added new branch and requirements. 
+
+  All finalized the requirements both functional & non-functional, will work to finish the Milestone 1 by Wednesday. 
+
+12 Requirements Finalized, with use case for 6. 
