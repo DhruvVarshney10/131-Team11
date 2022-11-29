@@ -8,10 +8,11 @@ from flask_login import login_required
 from flask_login import login_user
 from flask_login import logout_user
 
-@myapp_obj.route('/private')
+@myapp_obj.route('/home')
 @login_required
-def private():
-    return 'Hi this is a private page'
+def home():
+	return render_template('base.html')
+	#This will be our user home page
 
 @myapp_obj.route('/logout')
 @login_required
@@ -21,6 +22,9 @@ def logout():
 
 @myapp_obj.route('/login', methods=['POST', 'GET'])
 def login():
+
+	#Login will need to have link to sign-up page
+	
     current_form = LoginForm()
     # taking input from the user and doing somithing with it
     if current_form.validate_on_submit():
@@ -35,15 +39,18 @@ def login():
 
         # login user
         login_user(user, remember=current_form.remember_me.data)
-        flash('quick way to debug')
-        flash('another quick way to debug')
         print(current_form.username.data, current_form.password.data)
         return redirect('/')
-    a = 1
-    name = 'Carlos'
-    return render_template('login.html', name=name, a=a, form=current_form)
+        
+    return render_template('login.html', form=current_form)
+
+@myapp_obj.route('/signup', methods=['POST', 'GET'])
+def signup():
+	# Will need to add way to add user
+	return render_template('base.html')
 
 
 @myapp_obj.route('/')
-def home():
+def start():
+	# Make this page redirect to login if not signed in, or homepage if signed in
     return render_template('base.html')
