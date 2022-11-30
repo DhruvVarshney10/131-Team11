@@ -1,14 +1,22 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> Login Page </title>
+        <link rel="stylesheet" type="text/css" href="global.css">
+    </head>
 
-{% block mycontent %}
-<h1>{{a}}</h1>
-<p>Hello {{name}} </p>
-
-<form action="" method="POST" novalidate>
-    {{form.hidden_tag()}}
-    <p>{{form.username.label}} <br> {{form.username()}}</p>
-    <p>{{form.password.label}} <br> {{form.password()}}</p>
-    <p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
-    <p>{{form.submit.label}} <br> {{form.submit()}}</p>
-</form>
-{% endblock %}
+    <body>
+        <div class="form-container">
+            <div class="symbol"></div>
+            <ul class="list">
+                <li><h2>Sign in to To-eater</h2></li>
+                <li><input type="text" name="User Name" placeholder="Username"></li>
+                <li><input type="password" name="Password" placeholder="Password"></li>
+                <li><input type="button" name="Sign In" value="Sign In"></li>
+                <li><input type="button" name="Sign Up" value="Sign Up"></li>
+                <li>Forgot Password?</li>
+            </ul>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,75 @@
+*{margin: 0; padding: 0}
+body{
+    background-color:rgba(24, 24, 24);
+    padding-top: 10vh;
+}
+
+.symbol{
+    background: url('twitter.png') no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 100%;
+    position: absolute;
+    right: 250px;
+
+}
+
+.form-container{
+    width: 500px;
+    height: 650px;
+    padding: 20px 30px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 20px;
+    margin: auto;
+    color: rgb(250, 250, 250);
+    position: relative;
+}
+
+ul.list{
+list-style-type: none;
+text-align: center;
+margin-top: 100px;
+font-family: arial, sans-serif;
+font-size:x-large;
+
+}
+
+ul.list.li{
+width: 250px;
+}
+
+ul.list li input{
+    width: 250px;
+    text-align: center;
+    padding: 7px 0;
+    background-color: black;
+    border-radius: 5px;
+    border-color: rgb(93, 93, 93);
+    border-style: solid;
+}
+
+ul.list li input[type="button"]{
+    border: none;
+    border-radius: 50px;
+    background-color:rgb(0, 141, 196);
+}
+
+ul.list li:nth-child(2){
+    margin-top: 60px;
+}
+
+ul.list li:nth-child(3){
+    margin-top: 35px;
+}
+ul.list li:nth-child(4){
+    margin-top: 35px;
+}
+
+ul.list li:nth-child(5){
+    margin-top: 75px;
+}
+
+ul.list li:nth-child(6){
+    margin-top: 100px;
+    font-size: small;
+}
