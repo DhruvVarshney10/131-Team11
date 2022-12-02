@@ -1,6 +1,6 @@
-from app import myapp_obj
+from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm
+from app.forms import LoginForm, SignUpForm
 from app.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -17,7 +17,7 @@ def home():
 @myapp_obj.route('/logout')
 @login_required
 def logout():
-    load_user(current_user)
+    logout_user()
     return redirect('/')
 
 @myapp_obj.route('/login', methods=['POST', 'GET'])
@@ -38,19 +38,23 @@ def login():
             return redirect('/login')
 
         # login user
-        login_user(user, remember=current_form.remember_me.data)
-        print(current_form.username.data, current_form.password.data)
+        login_user(user)
         return redirect('/')
         
     return render_template('login.html', form=current_form)
 
 @myapp_obj.route('/signup', methods=['POST', 'GET'])
 def signup():
-	# Will need to add way to add user
-	return render_template('base.html')
-
+	current_form = SignUpForm()
+	if current_form.validate_on_submit():
+		user = User(username=current_form.username.data, password=generate_password_hash(current_form.password.data))
+		db.session.add(user)
+		db.session.commit()
+		login_user(user)
+		return redirect('/home')
+	return render_template('signup.html', form=current_form)
 
 @myapp_obj.route('/')
 def start():
 	# Make this page redirect to login if not signed in, or homepage if signed in
-    return render_template('base.html')
+    return redirect('/home')
