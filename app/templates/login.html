@@ -1,38 +1,30 @@
-<!DOCTYPE html>
+{% extends "base.html" %}
 <html>
     <head>
-        <title> Login Page </title>
-        <link rel="stylesheet" type="text/css" href="global.css">
+        <link rel="stylesheet" type="text/css" href="static/global.css">
     </head>
 
-<<<<<<< HEAD
-    <body>
-        <div class="form-container">
-            <div class="symbol"></div>
-            <ul class="list">
-                <li><h2>Sign in to To-eater</h2></li>
-                <li><input type="text" name="User Name" placeholder="Username"></li>
-                <li><input type="password" name="Password" placeholder="Password"></li>
-                <li><input type="button" name="Sign In" value="Sign In"></li>
-                <li><input type="button" name="Sign Up" value="Sign Up"></li>
-                <li>Forgot Password?</li>
-            </ul>
-        </div>
-        
-    </body>
-</html>
-=======
-{% block title %} - Login{% endblock %}
+    {% block title %} - Login{% endblock %}
 
-{% block mycontent %}
-<div class="form-container">
-	<form action="" method="POST" novalidate>
-    	{{form.hidden_tag()}}
-    	<p>{{form.username.label}} <br> {{form.username()}}</p>
-    	<p>{{form.password.label}} <br> {{form.password()}}</p>
-    	<p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
-    	<p>{{form.submit.label}} <br> {{form.submit()}}</p>
-	</form>
-</div>
-{% endblock %}
->>>>>>> 9dd7994f2f829936ba43d404dc1c88df775e1158
+    {% block mycontent %}
+    <div class="form-container">
+        <form action="" method="POST" novalidate>
+            <div class="symbol"></div>
+            <div>
+                <img src="../static/twitter.png" alt="">
+            </div>
+            <ul class="list">
+                {{form.hidden_tag()}}
+                <li><h2>Sign in to To-eater</h2></li>
+                <li>{{form.username.label}} <br></li>
+                <li>{{form.username()}} <br></li>
+                <li>{{form.password.label}} <br></li>
+                <li>{{form.password()}} <br></li>
+                <li>{{form.remember_me.label}} <br></li>
+                <li>{{form.remember_me()}} <br></li>
+                <li>{{form.submit()}} <br></li>
+            </ul>
+        </form>
+    </div>
+    {% endblock %}
+</html>
