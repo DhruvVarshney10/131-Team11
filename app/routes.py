@@ -57,4 +57,5 @@ def signup():
 @myapp_obj.route('/')
 def start():
 	# Make this page redirect to login if not signed in, or homepage if signed in
+	# already done by making the home redirect to login when not signed in :)
     return redirect('/home')

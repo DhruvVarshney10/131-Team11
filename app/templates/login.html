@@ -1,19 +1,14 @@
 {% extends "base.html" %}
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="static/global.css">
-    </head>
-
     {% block title %} - Login{% endblock %}
 
     {% block mycontent %}
     <div class="form-container">
-        <form action="" method="POST" novalidate>
-            <div class="symbol"></div>
-            <div>
-                <img src="../static/twitter.png" alt="">
-            </div>
-            <ul class="list">
+    	<form action="" method="POST" novalidate>
+        	<div class="symbol"></div>
+       		<div>
+            	<img src="../static/twitter.png" alt="">
+        	</div>
+        	<ul class="list">
                 {{form.hidden_tag()}}
                 <li><h2>Sign in to To-eater</h2></li>
                 <li>{{form.username.label}} <br></li>
@@ -21,8 +16,10 @@
                 <li>{{form.password.label}} <br></li>
                 <li>{{form.password()}} <br></li>
                 <li>{{form.submit()}} <br></li>
+                <li><p>Don't have an account? Sign up below!</p></li>
+                <a class="button" href="/signup">Sign Up</a>
             </ul>
         </form>
+        <!-- just found out how to do html comments -->
     </div>
     {% endblock %}
-</html>
