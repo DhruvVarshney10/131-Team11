@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="global.css">
     </head>
 
+<<<<<<< HEAD
     <body>
         <div class="form-container">
             <div class="symbol"></div>
@@ -20,3 +21,18 @@
         
     </body>
 </html>
+=======
+{% block title %} - Login{% endblock %}
+
+{% block mycontent %}
+<div class="form-container">
+	<form action="" method="POST" novalidate>
+    	{{form.hidden_tag()}}
+    	<p>{{form.username.label}} <br> {{form.username()}}</p>
+    	<p>{{form.password.label}} <br> {{form.password()}}</p>
+    	<p>{{form.remember_me.label}} <br> {{form.remember_me()}}</p>
+    	<p>{{form.submit.label}} <br> {{form.submit()}}</p>
+	</form>
+</div>
+{% endblock %}
+>>>>>>> 9dd7994f2f829936ba43d404dc1c88df775e1158
