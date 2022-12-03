@@ -39,6 +39,7 @@ ul.list{
     /* Sign in to To-eater */
     ul.list li:nth-child(2){
         font-size: 100%;
+        color:rgb(24, 170, 255);
         margin-bottom: 50px;
     }
     
@@ -70,3 +71,13 @@ ul.list{
         margin-bottom: 50px;
     }
 
+    /* Sign-up text */
+    ul.list li:nth-child(8){
+        font-size: 70%;
+    }
+
+    /* Sign-up link */
+    a{
+        font-size: 80%;
+        color:rgb(24, 170, 255);
+    }
