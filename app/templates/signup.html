@@ -5,10 +5,19 @@
 {% block mycontent %}
 <div class="form-container">
 	<form action="" method="POST" novalidate>
-		{{form.hidden_tag()}}
-		<p>{{form.username.label}} <br> {{form.username()}}</p>
-		<p>{{form.password.label}} <br> {{form.password()}}</p>
-		<p>{{form.submit.label}} <br> {{form.submit()}}</p>
+		<div class ="symbol"></div>
+		<div>
+			<img src="../static/twitter.png" alt="">
+		</div>
+		<ul class="list">
+			{{form.hidden_tag()}}
+			<li><h2>Sign up to To-eater</h2></li>
+			<li>{{form.username.label}} <br></li> 
+			<li>{{form.username()}} <br></li>
+			<li>{{form.password.label}} <br></li> 
+			<li>{{form.password()}} <br></li>
+			<li>{{form.submit()}} <br></li>
+		</ul>
 	</form>
 </div>
 {% endblock %}
