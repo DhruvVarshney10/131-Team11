@@ -11,18 +11,19 @@ from flask_login import logout_user
 @myapp_obj.route('/home')
 @login_required
 def homepage():
+	print(current_user)
 	return render_template('home.html')
 	#This will be our user home page
 
-@myapp_obj.route('/newtweet')
+@myapp_obj.route('/post')
 @login_required
 def newtweet():
-	return render_template('newtweet.html')
+	return render_template('post.html')
 
-@myapp_obj.route('/sendmsg')
+@myapp_obj.route('/messages')
 @login_required
 def sendmsg():
-	return render_template('sendmsg.html')
+	return render_template('messages.html')
 
 @myapp_obj.route('/settings')
 @login_required
@@ -33,7 +34,7 @@ def settings():
 @login_required
 def logout():
     logout_user()
-    return redirect('/')
+    return redirect('/login')
 
 @myapp_obj.route('/login', methods=['POST', 'GET'])
 def login():
@@ -54,7 +55,7 @@ def login():
 
         # login user
         login_user(user)
-        return redirect('/')
+        return redirect('/home')
         
     return render_template('login.html', form=current_form)
 
@@ -72,5 +73,4 @@ def signup():
 @myapp_obj.route('/')
 def start():
 	# Make this page redirect to login if not signed in, or homepage if signed in
-	# already done by making the home redirect to login when not signed in :)
-    return redirect('/home')
+	return redirect('/login')
