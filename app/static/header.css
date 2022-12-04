@@ -1,0 +1,19 @@
+.header {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    background-color: #079cf3;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .header__logo {
+    width: 150px;
+    size: 5px;
+    object-fit: contain; 
+    margin: 0px;
+    margin-top: 1000px;
+    color: #ba0001;
+    size: 7000px;
+  }

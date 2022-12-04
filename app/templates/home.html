@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+    {% block title %} - Login{% endblock %}
+
+    {% block mycontent %}
+    <div class="header">
+      <link rel="stylesheet" href="static/header.css">
+        <input type="text" placeholder="Search..">
+        
+        <div className='header__logo'>
+          <a href="/newtweet"><img src="../static/newtweet.png"></a>
+        </div>
+
+        <div className='header__logo'>
+          <a href="/sendmsg"><img src="../static/sendmsg.png"></a>
+        </div>
+
+        <div className='header__logo'>
+          <a href="/settings"><img src="../static/settings.png"></a>
+        </div>
+        
+       
+        <a href="">Logout</a>
+        
+        
+    </div>
+    {% endblock %}
