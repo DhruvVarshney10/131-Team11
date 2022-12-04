@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm
+from app.forms import LoginForm, SignUpForm, PostForm
 from app.models import User
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -15,10 +15,16 @@ def homepage():
 	return render_template('home.html')
 	#This will be our user home page
 
-@myapp_obj.route('/post')
+@myapp_obj.route('/post', methods=['POST', 'GET'])
 @login_required
 def newtweet():
-	return render_template('post.html')
+	current_form = PostForm()
+	if current_form.validate_on_submit():
+		Post(body=current_form.post.data, id=current_user.id)
+		db.session.add(post)
+		db.commit()
+		return redirect('/home')
+	return render_template('post.html', form=current_form)
 
 @myapp_obj.route('/messages')
 @login_required
