@@ -10,9 +10,24 @@ from flask_login import logout_user
 
 @myapp_obj.route('/home')
 @login_required
-def home():
-	return render_template('base.html')
+def homepage():
+	return render_template('home.html')
 	#This will be our user home page
+
+@myapp_obj.route('/newtweet')
+@login_required
+def newtweet():
+	return render_template('newtweet.html')
+
+@myapp_obj.route('/sendmsg')
+@login_required
+def sendmsg():
+	return render_template('sendmsg.html')
+
+@myapp_obj.route('/settings')
+@login_required
+def settings():
+	return render_template('settings.html')
 
 @myapp_obj.route('/logout')
 @login_required

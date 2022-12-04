@@ -3,6 +3,7 @@
 {% block title %} - Sign Up{% endblock %}
 
 {% block mycontent %}
+<link rel="stylesheet" href="static/global.css">
 <div class="form-container">
 	<form action="" method="POST" novalidate>
 		<div class ="symbol"></div>
@@ -17,6 +18,7 @@
 			<li>{{form.password.label}} <br></li> 
 			<li>{{form.password()}} <br></li>
 			<li>{{form.submit()}} <br></li>
+			
 		</ul>
 	</form>
 </div>
