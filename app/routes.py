@@ -20,7 +20,8 @@ def homepage():
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
-		Post(body=current_form.post.data, id=current_user.id)
+		print("post validated")
+		post = Post(body=current_form.post.data, id=current_user.id)
 		db.session.add(post)
 		db.commit()
 		return redirect('/home')
