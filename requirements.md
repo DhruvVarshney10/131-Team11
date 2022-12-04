@@ -19,51 +19,56 @@
 
 2. Compatibility - The webApp should run on Chrome Web Browser
 
-3. The image format for a tweet must be .png or .jpg
+3. The image format for a tweet must be .jpeg
 
 4. All passwords must be at least 8 characters, 1 capital, 1 number
 
 ## Use Cases
 
 1. Send messages to followers
-- **Pre-condition:** Sender should have receiver as a follower.
+- **Pre-condition:** The user is logged in and is on home page.
 
-- **Trigger:** Pressing the Send Message Button
+- **Trigger:** Pressing the Send Message Button.
 
 - **Primary Sequence:**
   
-  1. Select a receiver.
-  2. Type a text in the box that needs to be sent. 
-  3. Press send to send the text.
-  4. Receiver receives the text on their account.
+  1. Select the messages page.
+  2. Select a receiver from list of followers.
+  3. Type a text in the box that needs to be sent. 
+  4. Press send to send the text.
 
-- **Primary Postconditions:** The receiver sees the text on their account.  
+- **Primary Postconditions:** The text shows up on the message thread for both users.  
 
-- **Alternate Sequence:** The receiver may not be a follower of the sender
+- **Alternate Sequence:** The receiver account does no longer exist (the receiver account was deleted before the message was sent).
   
-  1. The text shows under requests tab to receiver.
-  2. Receiver can accept the sender and receive any future texts.
-  3. Receiver can block the sender.
- 
+  1. Select the messages page.
+  2. Select a receiver from list of followers.
+  3. Type a text in the box that needs to be sent. 
+  4. Press send to send the text.
+  5. An error is displayed "User does no longer exist" (the message remains unsent).
+
 2. Adding an image to a post
-- **Pre-conditions:** User should create a draft for the post
+- **Pre-conditions:** User is logged in and is on the create a post tab.
 
-- **Trigger:** Pressing the Upload Image option in your tweet
+- **Trigger:** Pressing the Upload Image option in your tweet.
 
 - **Primary Sequence:**
   
-  1. Create a post.
-  2. Select and upload an image.
-  3. Preview the image and change if needed to.
-  4. Post the draft on the profile.
+  1. Press the "create post" button.
+  2. Press the "upload image" button.
+  3. Select an image (.jpeg).
+  4. Press the "upload" button.
 
-- **Primary Postconditions:** The post shows up on the user's profile
+- **Primary Postconditions:** The image is added to the tweet draft.
 
 - **Alternate Sequence:** The image may not be in a .jpeg format.
 
-  1. User tries to upload an image of an unsupported type.
-  2. User gets an error message saying "unsupported format. Use .jpeg".
-  3. User can re upload their image in .jpeg format.
+  1. Press the "create post" button.
+  2. Press the "upload image" button.
+  3. Select an image.
+  4. Press the "upload" button.
+  5. An error is display "Unsupported format. Please use .jpeg".
+  6. The user is redirected to "Create a Post" tab.
 
 3. Search users/Friends
 - **Pre-conditions:** User should select a search button to search up someone
