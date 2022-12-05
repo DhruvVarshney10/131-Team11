@@ -4,24 +4,29 @@
 2. Logout
 3. Create new account
 4. delete account
-5. User home page (users can see tweets of users they follow)
-6. Create a Post
-7. Adding an image to a tweet
-8. Re-tweet a tweet
-9. Comment/Like a tweet
-10. Delete/Edit a tweet
-11. Search users/Friends
-12. Send messages to followers
+5. User home page (users can see messages of users they follow)
+6. Send messages to followers
+7. Adding an image to a post
+8. Search users/Friends
+9. Block a User/Friend
+10. Re-tweet a tweet
+11. Comment/Like a post
+12. Delete/Edit a post
+13. See followers and following users
+14. Create a Post
+
 
 ## Non-functional Requirements
 
-1. Limited Length Tweets - A tweet cannot exceed 140 words
+1. Speed & Smoothness - The app should be capable of managing an increasing load of users & data. 
+2. Security
+    A. Account Locking - After a certain number of login attempts, the system could lockt he user’s account is locked and protect from hackers.
+    B. Strong Password Generation - Ensure the the user created passwords are strong, (contain atleast a capital lette and a number)
+3. Compatibility - Should be able to run on any Web browser ?
+4. Real-Time updating feed - The feed updates in real time ?
+5. Limited Length Tweets - Each tweet is limited to 120 words. 
+6. Tag Other users in a tweet - and the tweets sows up on their feed aswell. 
 
-2. Compatibility - The webApp should run on Chrome Web Browser
-
-3. The image format for a tweet must be .jpeg
-
-4. All passwords must be at least 8 characters, 1 capital, 1 number
 
 ## Use Cases
 
@@ -117,38 +122,9 @@
 
 - **Primary Sequence:**
   
-  1. The user presses the "New Tweet" Button
-  2. A prompt shows up where they can draft a message upto 140 characters
-  3. The user can press the "Post tweet" button to Post the Tweet
-  4. The post appear of the user's Home page(Feed)
-
-- **Primary Postconditions:** The post appear of the user's Home page(Feed) 
-
-- **Alternate Sequence:** The draft may be over 140 character limit
-  
-  1. An error is prompted "Tweet is over character limit"
-  2. The user edits his tweet to match the character limit  
-  3. The user can press the "Post tweet" button to Post the Tweet
-  4. The post appear of the user's Home page(Feed) 
-
-6. Delete/edit a tweet 
-
-- **Pre-conditions:** User has an account, is logged in and has some posts on their account
-
-- **Trigger:** User clicks on the delete/edit button under the tweet.
-
-- **Primary Sequence:**
-
-  1. User completes the log-in procedure and redirected to their account's home page.
-  2. On the home page the user can view their own posts.
-  3. The user clicks click on "Edit" to edit a post or "Delete" to delete it.  
-  4. When the user clicks on Edit the user will be prompted to edit their post, which will be saved on clicking "Done".
-  5. If the user selects "Delete" they will be asked - "Would you like to delete this post", and it will be deleted if "Yes" is selected.  
-
-- **Primary Postconditions:** Edited tweet appears in the on the Home page or is deleted
-
-- **Alternate Sequence:** The user has not created any posts.
-
-  1. User enters account.
-  2. The User doesnot see any posts and sees the message "No posts to show".
-  3. User is encouraged to either create a post to edit/delete it.
+  1. The text shows under requests tab to receiver.
+  2. Receiver can accept the sender and receive any future texts.
+  3. Receiver can block the sender.
+ 
+2. Use Case Name (Should match functional requirement name)
+   ...
