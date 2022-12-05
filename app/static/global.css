@@ -5,9 +5,9 @@ body{
 }
 
 div{
-    margin: 0px 250px;
-    height: 50px;
-    width: 50px;
+    margin: -30px 250px;
+    height: 95px;
+    width: 75px;
     display: flex;
     justify-content: center;
 }
