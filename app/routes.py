@@ -77,6 +77,7 @@ def signup():
 		return redirect('/home')
 	return render_template('signup.html', form=current_form)
 
+#code for /
 @myapp_obj.route('/')
 def start():
 	# Make this page redirect to login if not signed in, or homepage if signed in
