@@ -65,7 +65,7 @@ def login():
         return redirect('/home')
         
     return render_template('login.html', form=current_form)
-
+#code for signup
 @myapp_obj.route('/signup', methods=['POST', 'GET'])
 def signup():
 	current_form = SignUpForm()
