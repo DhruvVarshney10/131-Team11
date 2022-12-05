@@ -1,19 +1,39 @@
-.header {
+#header {
     height: 60px;
+    width: 100%;
     display: flex;
-    align-items: center;
-    background-color: #079cf3;
-    position: sticky;
+    background-color: rgb(24, 170, 255);
+    position: absolute;
     top: 0;
-    z-index: 100;
+    left: 0;
+
   }
 
-  .header__logo {
-    width: 150px;
-    size: 5px;
-    object-fit: contain; 
-    margin: 0px;
-    margin-top: 1000px;
-    color: #ba0001;
-    size: 7000px;
+#home{
+  position: fixed; left: 3%; top: 0.5%;
+}
+
+#search [type=text]{
+  margin: 8px 300px;
+  width: 600px;
+  height: 40px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
   }
+
+#newtweet{
+  position: fixed; left: 83%; top: 0.5%;
+}
+
+#sendmsg{
+  position: fixed; left: 86.5%; top: 0.5%;
+}
+
+#settings{
+  position: fixed; left: 90.25%; top: 0.5%;
+}
+
+#logout{
+  position: fixed; left: 94.25%; top: 0.5%;
+}

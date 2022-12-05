@@ -2,25 +2,32 @@
     {% block title %} - Login{% endblock %}
 
     {% block mycontent %}
-    <div class="header">
+    <div id="header">
       <link rel="stylesheet" href="static/header.css">
-        <input type="text" placeholder="Search..">
-        
-        <div className='header__logo'>
-          <a href="/post"><img src="../static/newtweet.png"></a>
-        </div>
+      
+      <div id='home'>
+        <a href="/home"><img src="../static/twitter.png" width = "50" height = "50"></a>
+      </div>  
+      
+      <div id='search'>
+        <input type="text" placeholder="Search">
+      </div>
+          
+      <div id='newtweet'>
+        <a href="/newtweet"><img src="../static/newtweet.png" width = "50" height = "50"></a>
+      </div>
 
-        <div className='header__logo'>
-          <a href="/sendmsg"><img src="../static/sendmsg.png"></a>
-        </div>
+      <div id='sendmsg'>
+        <a href="/sendmsg"><img src="../static/sendmsg.png" width = "50" height = "50"></a>
+      </div>
 
-        <div className='header__logo'>
-          <a href="/settings"><img src="../static/settings.png"></a>
-        </div>
+      <div id='settings'>
+        <a href="/settings"><img src="../static/settings.png" width = "50" height = "50"></a>
+      </div>
         
-       
-        <a href="">Logout</a>
-        
+      <div id='logout'>
+        <a href=""><img src="../static/logout.jpeg" width = "50" height = "50"></a>
+      </div>
         
     </div>
     {% endblock %}
