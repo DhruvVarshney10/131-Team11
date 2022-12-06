@@ -13,7 +13,11 @@ from datetime import datetime
 @login_required
 def homepage():
 	print(current_user)
-	return render_template('home.html')
+	posts = []
+	for u in User.query.all():
+		posts.extend(u.posts.all())
+	#posts = current_user.posts.all()
+	return render_template('home.html', posts=posts)
 	#This will be our user home page
 
 @myapp_obj.route('/post', methods=['POST', 'GET'])
@@ -23,7 +27,7 @@ def newtweet():
 	if current_form.validate_on_submit():
 		print("post validated")
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, timestamp = current_datetime)
+		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')
@@ -100,5 +104,5 @@ def signup():
 #code for /
 @myapp_obj.route('/')
 def start():
-	# Make this page redirect to login if not signed in, or homepage if signed in
+	db.create_all()
 	return redirect('/login')
