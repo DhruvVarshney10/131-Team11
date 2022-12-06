@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
@@ -13,7 +13,7 @@ class SignUpForm(FlaskForm):
     submit = SubmitField('Sign Up')
 
 class PostForm(FlaskForm):
-	post = TextAreaField('Post', validators=[DataRequired()])
+	post = TextAreaField('Post', validators=[DataRequired(), Length(1,140)])
 	submit = SubmitField('Post')
 
 class Delete_Account_Form(FlaskForm):

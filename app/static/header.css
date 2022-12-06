@@ -1,3 +1,17 @@
+body {
+	background-color:rgb(38,48,55)
+}
+
+#posts {
+	position: fixed; top:50px; 
+	color: #FFFFFF;
+	font-size: 30px;
+}
+
+#post-container {
+	/* Available to contain each post */
+}
+
 #header {
     height: 60px;
     width: 100%;

@@ -26,8 +26,16 @@
       </div>
         
       <div id='logout'>
-        <a href="/logout"><img src="../static/logout.jpeg" width = "50" height = "50"></a>
+        <a href="/logout"><img src="../static/logout.png" width = "50" height = "50"></a>
       </div>
         
+    </div>
+
+    <div id='posts'>
+		{% for Post in posts %}
+		<div id='post-container'>
+			<p>{{ Post.username }} says: <b>{{ Post.body }}</b></p>
+		</div>
+		{% endfor %}
     </div>
     {% endblock %}
