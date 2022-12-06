@@ -6,9 +6,11 @@
 	<div class="form-container">
 		<form action="" method="POST" novalidate>
 			<div class="symbol"></div>
-			<div><img src="../static/twitter.png" alt=""></div>
+			<div>
+				<img src="../static/twitter.png" alt="">
+			</div>
 			<ul class="list">
-				{{form.hidden_tag}}
+				{{form.hidden_tag()}}
 				<li><h2>Write your new post below!</h2></li>
 				<li>{{form.post()}} <br></li>
 				<!-- UPLOAD IMAGE WILL GO HERE AND WILL ADD AN ID FOR AN IMAGE IN THE DATABASE TO ACCESS THE IMAGE STORED ELSEWHERE -->
