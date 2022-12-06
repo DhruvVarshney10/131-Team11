@@ -15,3 +15,7 @@ class SignUpForm(FlaskForm):
 class PostForm(FlaskForm):
 	post = TextAreaField('Post', validators=[DataRequired()])
 	submit = SubmitField('Post')
+
+class Delete_Account_Form(FlaskForm):
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Delete Account')
