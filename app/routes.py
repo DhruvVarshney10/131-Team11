@@ -23,7 +23,7 @@ def newtweet():
 	if current_form.validate_on_submit():
 		print("post validated")
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, timestamp=current_datetime)
+		post = Post(body=current_form.post.data, user_id=current_user.id, timestamp = current_datetime)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')
@@ -100,6 +100,5 @@ def signup():
 #code for /
 @myapp_obj.route('/')
 def start():
-	db.create_all()
 	# Make this page redirect to login if not signed in, or homepage if signed in
 	return redirect('/login')
