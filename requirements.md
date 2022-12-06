@@ -124,12 +124,12 @@
 
 - **Primary Postconditions:** The post appear of the user's Home page(Feed) 
 
-- **Alternate Sequence:** The draft may be over 140 character limit
+- **Alternate Sequence:** User tries to submit an empty post
   
-  1. An error is prompted "Tweet is over character limit"
-  2. The user edits his tweet to match the character limit  
-  3. The user can press the "Post tweet" button to Post the Tweet
-  4. The post appear of the user's Home page(Feed) 
+  1. User does not type anything into the post box
+  2. User presses the submit button
+  3. The submit button does not create a post and does not redirect to home
+  4. The User can create an actual post while on the post page
 
 6. Delete/edit a tweet 
 
