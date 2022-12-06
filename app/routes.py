@@ -51,6 +51,8 @@ def delete_account():
 	if current_form.validate_on_submit():
 
 		if current_user.check_password(current_form.password.data):
+			for post in current_user.posts.all():
+				db.session.delete(post)
 			db.session.delete(current_user)
 			db.session.commit()
 			print("The Account has been deleted")
