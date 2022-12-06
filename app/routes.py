@@ -1,12 +1,13 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
 from app.forms import LoginForm, SignUpForm, PostForm
-from app.models import User
+from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
 from flask_login import login_required
 from flask_login import login_user
 from flask_login import logout_user
+from datetime import datetime
 
 @myapp_obj.route('/home')
 @login_required
@@ -21,9 +22,10 @@ def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
 		print("post validated")
-		post = Post(body=current_form.post.data, id=current_user.id)
+		current_datetime = datetime.now()
+		post = Post(body=current_form.post.data, user_id=current_user.id, timestamp=current_datetime)
 		db.session.add(post)
-		db.commit()
+		db.session.commit()
 		return redirect('/home')
 	return render_template('post.html', form=current_form)
 
@@ -80,5 +82,6 @@ def signup():
 #code for /
 @myapp_obj.route('/')
 def start():
+	db.create_all()
 	# Make this page redirect to login if not signed in, or homepage if signed in
 	return redirect('/login')
