@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField, HiddenField
 from wtforms.validators import DataRequired, Length
 
 class LoginForm(FlaskForm):
@@ -19,3 +19,10 @@ class PostForm(FlaskForm):
 class Delete_Account_Form(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Delete Account')
+
+class FriendForm(FlaskForm):
+	submit = SubmitField('Send Follow Request')
+	user = HiddenField('user')
+
+class Accept_Form(FlaskForm):
+	submit = SubmitField('Accept Follow Request')

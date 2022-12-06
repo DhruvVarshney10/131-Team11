@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, FriendForm, Accept_Form
 from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -33,7 +33,7 @@ def newtweet():
 		return redirect('/home')
 	return render_template('post.html', form=current_form)
 
-@myapp_obj.route('/messages')
+@myapp_obj.route('/messages', methods=['POST', 'GET'])
 @login_required
 def sendmsg():
 	return render_template('messages.html')
@@ -106,4 +106,5 @@ def signup():
 #code for /
 @myapp_obj.route('/')
 def start():
+	db.create_all()
 	return redirect('/login')

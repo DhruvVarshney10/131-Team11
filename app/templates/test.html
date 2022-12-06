@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} - IDK{% endblock %}
+
+{% block mycontent %}
+<link rel="stylesheet" href="static/global.css">
+<div class="form-container">
+	{% for u in users %}
+		<p> {{ u.username }} </p>
+		<form action="" method="POST" novalidate>
+			{{form.hidden_tag()}}
+			{{form.user(value="TEST")}}<br>
+			<li>{{form.submit()}}<br></li>
+		</form>
+	{% endfor %}
+</div>
+{% endblock %}
