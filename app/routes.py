@@ -106,5 +106,4 @@ def signup():
 #code for /
 @myapp_obj.route('/')
 def start():
-	db.create_all()
 	return redirect('/login')
