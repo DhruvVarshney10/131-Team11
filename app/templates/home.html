@@ -31,11 +31,16 @@
         
     </div>
 
-    <div id='posts'>
-		{% for Post in posts %}
-		<div id='post-container'>
-			<p>{{ Post.username }} says: <b>{{ Post.body }}</b></p>
-		</div>
-		{% endfor %}
+    {% for Post in posts %}
+    <div class="tweet-wrap">
+      
+      <div class="tweet-header">
+        <div class="tweet-header-info">
+          {{ Post.username }}<span>{{Post.timestamp}}</span>
+          <p>{{ Post.body }}<br></p>
+        </div>
+      
+      </div>
+      {% endfor %}
     </div>
     {% endblock %}
