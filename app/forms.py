@@ -19,10 +19,3 @@ class PostForm(FlaskForm):
 class Delete_Account_Form(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     submit = SubmitField('Delete Account')
-
-class FriendForm(FlaskForm):
-	submit = SubmitField('Send Follow Request')
-	user = HiddenField('user')
-
-class Accept_Form(FlaskForm):
-	submit = SubmitField('Accept Follow Request')

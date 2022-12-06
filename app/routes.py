@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, FriendForm, Accept_Form
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form
 from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -102,6 +102,11 @@ def signup():
 		login_user(user)
 		return redirect('/home')
 	return render_template('signup.html', form=current_form)
+
+@myapp_obj.route('/test', methods=['POST', 'GET'])
+def test():
+	
+	return render_template('test.html')
 
 #code for /
 @myapp_obj.route('/')
