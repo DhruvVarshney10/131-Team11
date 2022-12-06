@@ -38,7 +38,7 @@ def settings():
 	return render_template('settings.html')
 
 #delete account code 
-@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
+@myapp_obj.route('/home/settings/delete_account', methods=['GET', 'POST'])
 @login_required
 def delete_account():
 	current_form = Delete_Account_Form()
