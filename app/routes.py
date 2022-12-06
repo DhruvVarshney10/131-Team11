@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form
 from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -38,6 +38,24 @@ def sendmsg():
 @login_required
 def settings():
 	return render_template('settings.html')
+
+#delete account code 
+@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
+@login_required
+def delete_account():
+	current_form = Delete_Account_Form()
+	if current_form.validate_on_submit():
+
+		if current_user.check_password(current_form.password.data):
+			db.session.delete(current_user)
+			db.session.commit()
+			print("The Account has been deleted")
+			return redirect("/login")
+
+		else:
+			print("Incorrect Password!")
+
+	return render_template('delete_account.html', form=current_form)
 
 @myapp_obj.route('/logout')
 @login_required
