@@ -123,10 +123,6 @@ def signup():
 		return redirect('/home')
 	return render_template('signup.html', form=current_form)
 
-@myapp_obj.route('/test', methods=['POST', 'GET'])
-def test():
-	return render_template('test.html')
-
 #code for /
 @myapp_obj.route('/')
 def start():
