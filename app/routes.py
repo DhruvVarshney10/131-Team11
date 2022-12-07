@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm
 from app.models import User, Post
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -19,6 +19,26 @@ def homepage():
 	#posts = current_user.posts.all()
 	return render_template('home.html', posts=posts)
 	#This will be our user home page
+
+@myapp_obj.route('/search', methods=['POST','GET'])
+@login_required
+def search():
+	current_form = SearchForm()
+	users = User.query
+	if current_form.validate_on_submit():
+		user_searched = current_form.searched.data
+		users = users.filter(User.username.like('%' + user_searched + '%'))
+		users = users.order_by(User.username).all()
+		
+		return render_template("search.html", form=current_form, searched=user_searched, users = users)
+	else:
+		print('eugh')
+		return render_template("base.html")
+
+@myapp_obj.context_processor
+def base():
+	current_form = SearchForm()
+	return dict(form=current_form)
 
 @myapp_obj.route('/post', methods=['POST', 'GET'])
 @login_required
@@ -105,10 +125,9 @@ def signup():
 
 @myapp_obj.route('/test', methods=['POST', 'GET'])
 def test():
-	
 	return render_template('test.html')
 
 #code for /
 @myapp_obj.route('/')
 def start():
-	return redirect('/login')
+	return redirect('/home')

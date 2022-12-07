@@ -8,11 +8,18 @@
       <div id='home'>
         <a href="/home"><img src="../static/twitter.png" width = "50" height = "50"></a>
       </div>  
+
+      <form method="POST" action="{{ url_for('search') }}">
+      {{ form.hidden_tag() }}
+      	<div id='search'>
+        	<input type="text" placeholder="Search", name='searched'>
+      	</div>
+
+      	<div id='searchbutton'>
+			<button type="submit">Search</button>
+      	</div>
+      </form>
       
-      <div id='search'>
-        <input type="text" placeholder="Search">
-      </div>
-          
       <div id='newtweet'>
         <a href="/post"><img src="../static/newtweet.png" width = "50" height = "50"></a>
       </div>
