@@ -23,3 +23,11 @@ class Delete_Account_Form(FlaskForm):
 class SearchForm(FlaskForm):
 	searched = StringField('Searched', validators=[DataRequired()])
 	submit = SubmitField('Search')
+
+class FollowForm(FlaskForm):
+	username = HiddenField('User')
+	submit = SubmitField('Follow')
+
+class AcceptForm(FlaskForm):
+	username = HiddenField('username')
+	submit = SubmitField('Accept')
