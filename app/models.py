@@ -32,6 +32,7 @@ class Follower(db.Model):
 	id = db.Column(db.Integer, primary_key = True)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	follower_id = db.Column(db.Integer)
+	accepted = db.Column(db.Boolean)
 
 @login.user_loader
 def load_user(id):

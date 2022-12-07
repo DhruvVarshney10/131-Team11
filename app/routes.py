@@ -58,6 +58,11 @@ def newtweet():
 def sendmsg():
 	return render_template('messages.html')
 
+@myapp_obj.route('/friend-requests', methods=['POST', 'GET'])
+@login_required
+def requests():
+	return render_template('requests.html')
+
 @myapp_obj.route('/settings')
 @login_required
 def settings():
@@ -126,4 +131,5 @@ def signup():
 #code for /
 @myapp_obj.route('/')
 def start():
+	db.create_all()
 	return redirect('/home')
