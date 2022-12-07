@@ -53,3 +53,40 @@ Ari - Added new branch and requirements.
 All finalized the requirements both functional & non-functional, will work to finish the Milestone 1 by Wednesday.
 
 12 Requirements Finalized, with use case for 6.
+
+##2022-11-29 at 10:00 AM
+
+Meeting Type : Inperson
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Anchal - Strategized and planned the logistics to work on requirements. Tested a few changes to files in app. 
+
+Gunraj - Strategized and planned the logistics to work on requirements. Added files to app and started working on them
+
+Dhruv - Strategized and planned the logistics to work on requirements. Added files to to app and started working on them. 
+
+Ari - Added all the app files to the repo. Started working on the requirements and tested changes added to the basics.
+
+All strategized how we should work on the project. By the next meeting we want to make sure to have the basic directories adn files added to the repo. 
+
+
+##2022-11-29 at 10:00 AM
+
+Meeting Type : Inperson
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Anchal - Strategized and planned the logistics to work on requirements. Tested a few changes to files in app. 
+
+Gunraj - Strategized and planned the logistics to work on requirements. Added files to app and started working on them
+
+Dhruv - Strategized and planned the logistics to work on requirements. Added files to to app and started working on them. 
+
+Ari - Added all the app files to the repo. Started working on the requirements and tested changes added to the basics.
+
+All strategized how we should work on the project. By the next meeting we want to make sure to have the basic directories adn files added to the repo. 
