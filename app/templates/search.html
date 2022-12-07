@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} - Search{% endblock %}
+
+{% block mycontent %}
+<link rel="stylesheet" href="static/global.css">
+<div class="form-container">
+	<ul class="list">
+		<h2>You searched: {{ searched }}</h2>
+		{% for u in users %}
+			<p>{{ u.username }}</p>
+		{% endfor %}
+	</ul>
+</div>
+{% endblock %}
