@@ -8,7 +8,12 @@
 	<ul class="list">
 		<h2>You searched: {{ searched }}</h2>
 		{% for u in users %}
-			<p>{{ u.username }}</p>
+			<form method="POST" action="{{url_for('follow') }}">
+				{{ form.hidden_tag() }}
+				<p>{{ u.username }}</p>
+				<input type="hidden" value={{ u.id }} name="username">
+				<button type="submit">Follow</button>
+			</form>
 		{% endfor %}
 	</ul>
 </div>

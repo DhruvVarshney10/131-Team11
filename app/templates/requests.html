@@ -1,7 +1,19 @@
 {% extends 'base.html' %}
 
-{% block title %} - Friend Requests{% endblock %}
+{% block title %} - Follower Requests{% endblock %}
 
 {% block mycontent %}
-
+<link rel="stylesheet" href="static/global.css">
+<div class="form-container">
+	<ul class = "list">
+		<h2>Follower requests!</h2>
+		{% for u in users %}
+			<p>{{ u.username }} </p>
+			<form action="" method="POST">
+				<input id="username" name="username" type="hidden" value={{ u.id }}>
+				{{ form.hidden_tag() }}
+				<button type="submit">Accept</button>
+			</form>
+		{% endfor %}
+	</ul>
 {% endblock %}
