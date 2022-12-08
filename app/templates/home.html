@@ -16,7 +16,7 @@
       	</div>
 
       	<div id='searchbutton'>
-			<button type="submit">Search</button>
+			    <button type="submit" class="button"><img src="../static/search.png" width = "36" height = "37"></button>
       	</div>
       </form>
       
@@ -39,15 +39,9 @@
     </div>
 
     {% for Post in posts %}
-    <div class="tweet-wrap">
-      
-      <div class="tweet-header">
-        <div class="tweet-header-info">
-          {{ Post.username }}<span>{{Post.timestamp}}</span>
-          <p>{{ Post.body }}<br></p>
-        </div>
-      
-      </div>
-      {% endfor %}
+    <div id="tweet-wrap">
+      <span>{{ Post.username }}</span><br><a>{{Post.timestamp}}</a>
+      <p>{{ Post.body }}<br></p>
     </div>
+    {% endfor %}
     {% endblock %}
