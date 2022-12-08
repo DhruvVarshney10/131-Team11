@@ -67,7 +67,7 @@ def base():
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
-		current_datetime = datetime.now().date()
+		current_datetime = datetime.now()
 		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime)
 		db.session.add(post)
 		db.session.commit()
@@ -118,6 +118,10 @@ def delete_account():
 		if current_user.check_password(current_form.password.data):
 			for post in current_user.posts.all():
 				db.session.delete(post)
+			for follows in Follower.query.filter_by(user_id=current_user.id):
+				db.session.delete(follows)
+			for follow_backs in Follower.query.filter_by(follower_id=current_user.id):
+				db.session.delete(follow_backs)
 			db.session.delete(current_user)
 			db.session.commit()
 			print("The Account has been deleted")
@@ -166,5 +170,4 @@ def signup():
 
 @myapp_obj.route('/')
 def start():
-	db.create_all()
 	return redirect('/home')

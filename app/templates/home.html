@@ -40,7 +40,7 @@
 
     {% for Post in posts %}
     <div id="tweet-wrap">
-      <span>{{ Post.username }}</span><br><a>{{Post.timestamp}}</a>
+      <span>{{ Post.username }}</span><br><a>{{Post.timestamp.date()}}</a>
       <p>{{ Post.body }}<br></p>
     </div>
     {% endfor %}
