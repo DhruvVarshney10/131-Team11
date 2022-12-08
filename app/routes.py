@@ -67,7 +67,7 @@ def base():
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
-		current_datetime = datetime.now()
+		current_datetime = datetime.now().date()
 		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime)
 		db.session.add(post)
 		db.session.commit()

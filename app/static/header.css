@@ -12,63 +12,61 @@ body {
 	/* Available to contain each post */
 }
 
-.tweet-wrap {
-  max-width:490px;
+#tweet-wrap {
+  max-width: 500px;
   background: #fff;
   margin: 0 auto;
   margin-top: 50px;
   border-radius:3px;
   padding: 30px;
-  border-bottom: 1px solid #e6ecf0;
-  border-top: 1px solid #e6ecf0;
-  align-items:left;
   overflow: auto;
 }
 
-.tweet-header {
-  display: 500px;
-  align-items:left;
-  font-size:14px;
-  
-}
-.tweet-header-info {
+#tweet-wrap span {
   font-weight:bold;
-  
+  font-size: 20px;
 }
-.tweet-header-info span {
-  color:#657786;
-  font-weight:normal;
-  margin-left: 5px;
+
+#tweet-wrap a {
+  font-weight:bold;
+  font-size: 100px;
 }
-.tweet-header-info p {
+
+#tweet-wrap p{
   font-weight:normal;
-  margin-top: 5px;
-  
+  margin-top: 10px;
 }
 
 #header {
-    height: 60px;
-    width: 100%;
-    display: flex;
-    background-color: rgb(24, 170, 255);
-    position: absolute;
-    top: 0;
-    left: 0;
-
-  }
+  height: 60px;
+  width: 100%;
+  display: flex;
+  background-color: rgb(24, 170, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+}
 
 #home{
   position: fixed; left: 3%; top: 0.5%;
 }
 
 #search [type=text]{
-  margin: 8px 300px;
+  margin: 8px 400px;
   width: 600px;
   height: 40px;
   border-radius: 5px;
   border: none;
   text-align: center;
-  }
+}
+
+.button{
+  top: 8px;
+  position: fixed;
+  left: 1010px;
+  border-radius: 5px;
+  border: none;
+}
 
 #newtweet{
   position: fixed; left: 83%; top: 0.5%;
