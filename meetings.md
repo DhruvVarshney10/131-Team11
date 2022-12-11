@@ -89,4 +89,111 @@ Dhruv - Strategized and planned the logistics to work on requirements. Added fil
 
 Ari - Added all the app files to the repo. Started working on the requirements and tested changes added to the basics.
 
-All strategized how we should work on the project. By the next meeting we want to make sure to have the basic directories adn files added to the repo. 
+All strategized how we should work on the project. By the next meeting we want to make sure to have the basic directories and files added to the repo. 
+
+
+##2022-12-01 at 10:00 AM
+
+Meeting Type : Inperson
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Anchal - Continued to working on app directory and the basic functional requirements 
+
+Gunraj - Continued to working on app and the basic functional requirements 
+
+Dhruv - Continued to working on app and the basic functional requirements 
+
+Ari - Continued to working on app and the basic functional requirements 
+
+All decided to meet tonight to discuss the progress and start working on the user API. 
+
+
+##2022-12-01 at 10:00 AM
+
+Meeting Type : Inperson
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Anchal - Continued to working on app directory and the basic functional requirements 
+
+Gunraj - Continued to working on app and the basic functional requirements 
+
+Dhruv - Continued to working on app and the basic functional requirements 
+
+Ari - Continued to working on app and the basic functional requirements 
+
+All decided to meet tonight to discuss the progress and start working on the user API. 
+
+##2022-12-03 at 9:00pm
+
+Meeting Type : Virtual
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Basic Structure starting to get ready. 
+
+Anchal - Made changes to the requirements & working on the login page and the home HTML page.  
+
+Gunraj - Worked on the user homepage, login page, design strategy and making changes to the requirements. 
+
+Dhruv - Worked on the user homepage and brainstormed the design of the website. 
+
+Ari - Worked on HTML pages as well as the login and user home page
+
+All decided to meet tomorrow and will continue to work on design as well as the algortihms for the Login, Logout and the User Homepage. 
+
+##2022-12-04 at 9:00pm
+
+Meeting Type : Virtual
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Design structure draft ready, all approve the layout and track the progress. All filled out to token form to resubmit the requirements. 
+
+Anchal & Dhruv - pair programming for the home page and the redirection for settings, post,etc. 
+
+Ari & Gunraj - pair programming for the login, logout, create/sign up. 
+
+Progress looking good, we imported our images(logos), the website design has base li ne structure and seems to be coming together. 
+
+
+##2022-12-05 at 9:00pm
+
+Meeting Type : Virtual & In-person 
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Login, and Logout and home page functional, Ari finished linking up the databse, Gunraj completed delete account to the settings and linked it to database.  
+
+Anchal & Dhruv - pair programming for the homepage testing and tweet design layout.  
+
+Ari & Gunraj - pair programming for the delete account functionality testing and create aa post.  
+
+Gradually progressing, plans to meet tomorrow to do work together and discuss finals schedule and availibutly along with any more changes that need to be made. 
+
+
+##2022-12-06 at 10:30 am 
+
+Meeting Type : In-person 
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Basic 4 reqs funtional, finals scedule discuss. Next meeting on the weekend. 
+
+Pair programming - Anchal & Dhruv working on the friends/followers and search, Ari and Gunraj working on the friend request, like and search as well.  
+
+
+All are preparing for finals and will continue to work on the project in between, next meeting disucss like, comment and edit.  
