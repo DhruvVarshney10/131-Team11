@@ -18,6 +18,7 @@ def homepage():
 		posts.extend(User.query.filter_by(id=f.follower_id).first().posts.all())
 	posts.extend(current_user.posts.all())
 	posts.sort(key=Post.get_timestamp)
+	posts.reverse()
 	return render_template('home.html', posts=posts)
 	#This will be our user home page
 
@@ -68,7 +69,7 @@ def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime)
+		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=current_form.image.data)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')
@@ -170,4 +171,5 @@ def signup():
 
 @myapp_obj.route('/')
 def start():
+	db.create_all()
 	return redirect('/home')

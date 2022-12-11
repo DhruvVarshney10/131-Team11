@@ -41,6 +41,9 @@
     {% for Post in posts %}
     <div id="tweet-wrap">
       <span>{{ Post.username }}</span><br><a>{{Post.timestamp.date()}}</a>
+      {% if Post.image %}
+      	<p><img src={{ Post.image }} style="maxwidth:200px;height:200px;"></p>
+      {% endif %}
       <p>{{ Post.body }}<br></p>
     </div>
     {% endfor %}

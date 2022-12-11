@@ -14,6 +14,7 @@ class SignUpForm(FlaskForm):
 
 class PostForm(FlaskForm):
 	post = TextAreaField('Post', validators=[DataRequired(), Length(1,140)])
+	image = StringField('Image')
 	submit = SubmitField('Post')
 
 class Delete_Account_Form(FlaskForm):
