@@ -13,7 +13,8 @@
 				{{form.hidden_tag()}}
 				<li><h2>Write your new post below!</h2></li>
 				<li>{{form.post()}} <br></li>
-				<!-- UPLOAD IMAGE WILL GO HERE AND WILL ADD AN ID FOR AN IMAGE IN THE DATABASE TO ACCESS THE IMAGE STORED ELSEWHERE -->
+				<li>If you want to add an image to your post, paste link below:<br></li>
+				<li>{{form.image()}} <br></li>
 				<li>{{form.submit()}} <br></li>
 			</ul>
 		</form>

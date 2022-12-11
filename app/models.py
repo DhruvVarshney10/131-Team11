@@ -27,6 +27,7 @@ class Post(db.Model):
 	username = db.Column(db.String)
 	body = db.Column(db.String(140))
 	timestamp = db.Column(db.DateTime, default=datetime)
+	image = db.Column(db.String())
 
 	def get_timestamp(self):
 		return self.timestamp
