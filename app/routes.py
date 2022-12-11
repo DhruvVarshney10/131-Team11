@@ -68,8 +68,11 @@ def base():
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
+		newimage = current_form.image.data
+		if current_form.post.data is '' and newimage is '':
+			return redirect('/post')
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=current_form.image.data)
+		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newimage)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')

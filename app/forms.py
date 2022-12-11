@@ -9,11 +9,11 @@ class LoginForm(FlaskForm):
 
 class SignUpForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(8)])
     submit = SubmitField('Sign Up')
 
 class PostForm(FlaskForm):
-	post = TextAreaField('Post', validators=[DataRequired(), Length(1,140)])
+	post = TextAreaField('Post', validators=[Length(max=140)])
 	image = StringField('Image')
 	submit = SubmitField('Post')
 
