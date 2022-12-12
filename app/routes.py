@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm, RepostForm
 from app.models import User, Post, Follower
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -63,13 +63,30 @@ def base():
 	current_form = SearchForm()
 	return dict(form=current_form)
 
+@myapp_obj.route('/repost', methods=['POST', 'GET'])
+@login_required
+def repost():
+	current_form = RepostForm()
+	if current_form.validate_on_submit():
+		newBody = current_form.post.data
+		newImage = current_form.image.data
+		print(newBody)
+		if newBody == 'None':
+			newBody == None
+		if newImage == 'None':
+			newImage == None
+		repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=current_form.username.data)
+		db.session.add(repost)
+		db.session.commit()
+	return redirect('/home')
+
 @myapp_obj.route('/post', methods=['POST', 'GET'])
 @login_required
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
 		newimage = current_form.image.data
-		if current_form.post.data is '' and newimage is '':
+		if current_form.post.data == '' and newimage == '':
 			return redirect('/post')
 		current_datetime = datetime.now()
 		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newimage)

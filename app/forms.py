@@ -32,3 +32,9 @@ class FollowForm(FlaskForm):
 class AcceptForm(FlaskForm):
 	username = HiddenField('username')
 	submit = SubmitField('Accept')
+
+class RepostForm(FlaskForm):
+	username = HiddenField('username')
+	post = HiddenField('post')
+	image = HiddenField('image')
+	submit = SubmitField('Repost')

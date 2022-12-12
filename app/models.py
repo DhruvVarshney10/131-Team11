@@ -28,6 +28,7 @@ class Post(db.Model):
 	body = db.Column(db.String(140))
 	timestamp = db.Column(db.DateTime, default=datetime)
 	image = db.Column(db.String())
+	reposted_from = db.Column(db.String())
 
 	def get_timestamp(self):
 		return self.timestamp
