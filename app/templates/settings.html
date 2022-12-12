@@ -1,17 +1,16 @@
 {% extends "base.html" %}
    
-    {% block title %} - Settings Page {% endblock %}
+    {% block title %} - Settings{% endblock %}
 
     {% block mycontent %}
     <link rel="stylesheet" href="static/global.css">
     <div class="form-container">
     	<form action="" method="POST" novalidate>
-        	<div class="symbol"></div>
-       		<div>
-            	<img src="../static/Twitter_black.png" alt="">
-        	</div>
+            <div class="symbol">
+                <a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
+            </div>
         	<ul class="list">
-                <li><p>Would you like to delete the account?</p></li>
+                <br><li><p>Would you like to delete the account?</p></li>
                 <a class="button" href="/delete_account">Delete Account</a>
             </ul>
         </form>

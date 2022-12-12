@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm
-from app.models import User, Post, Follower
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm, RepostForm, MessageForm
+from app.models import User, Post, Follower, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
 from flask_login import login_required
@@ -9,6 +9,7 @@ from flask_login import login_user
 from flask_login import logout_user
 from datetime import datetime
 
+#USER HOMEPAGE
 @myapp_obj.route('/home')
 @login_required
 def homepage():
@@ -20,8 +21,8 @@ def homepage():
 	posts.sort(key=Post.get_timestamp)
 	posts.reverse()
 	return render_template('home.html', posts=posts)
-	#This will be our user home page
 
+#SEARCH PAGE FROM HOMEPAGE
 @myapp_obj.route('/search', methods=['POST','GET'])
 @login_required
 def search():
@@ -36,6 +37,7 @@ def search():
 		return render_template("search.html", form=current_form, searched=user_searched, users = users)
 	return redirect('/home')
 
+#FOLLOW FUNCTION FROM SEARCH
 @myapp_obj.route('/follow', methods=['POST','GET'])
 @login_required
 def follow():
@@ -58,28 +60,76 @@ def follow():
 			db.session.commit()
 	return redirect('/home')
 
+#PART OF SEARCH SYSTEM
 @myapp_obj.context_processor
 def base():
 	current_form = SearchForm()
 	return dict(form=current_form)
 
+#REPOST FUNCTION FROM HOMEPAGE
+@myapp_obj.route('/repost', methods=['POST', 'GET'])
+@login_required
+def repost():
+	current_form = RepostForm()
+	if current_form.validate_on_submit():
+		newBody = current_form.post.data
+		newImage = current_form.image.data
+		print(newBody)
+		if newBody == 'None':
+			newBody == None
+		if newImage == 'None':
+			newImage == None
+		repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=current_form.username.data)
+		db.session.add(repost)
+		db.session.commit()
+	return redirect('/home')
+
+#POST PAGE TO CREATE NEW POST
 @myapp_obj.route('/post', methods=['POST', 'GET'])
 @login_required
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
+		newimage = current_form.image.data
+		if current_form.post.data == '' and newimage == '':
+			return redirect('/post')
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=current_form.image.data)
+		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newimage)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')
 	return render_template('post.html', form=current_form)
 
+#PAGE TO CHECK MESSAGES AND LINK TO OTHER MESSAGE FUNCTIONALITIES
 @myapp_obj.route('/messages', methods=['POST', 'GET'])
 @login_required
 def sendmsg():
-	return render_template('messages.html')
+	messages = []
+	for m in Message.query.all():
+		if m.receiver_id == current_user.id:
+			messages.append(m)
+	return render_template('messages.html', messages=messages)
 
+#PAGE TO SEND NEW MESSAGE
+@myapp_obj.route('/send-message', methods=['POST', 'GET'])
+@login_required
+def send():
+	current_form = MessageForm()
+	followers = []
+	for f in Follower.query.all():
+		if f.accepted == 1 and f.follower_id == current_user.id:
+			followers.append(User.query.filter_by(id=f.user_id).first())
+	current_form.receiver_id.choices = [(user.id, user.username) for user in followers]
+	print(followers)
+	if current_form.validate_on_submit():
+		message = Message(body=current_form.body.data, receiver_id=current_form.receiver_id.data, sender_username=current_user.username)
+		print(message)
+		db.session.add(message)
+		db.session.commit()
+		return redirect('/messages')
+	return render_template('sendmessage.html', form=current_form, followers=followers)
+
+#PAGE TO CHECK FOLLOWER REQUESTS
 @myapp_obj.route('/follower-requests', methods=['POST', 'GET'])
 @login_required
 def requests():
@@ -105,11 +155,13 @@ def requests():
 		return redirect('/home')
 	return render_template('requests.html', users=users, form=current_form)
 
+#PAGE TO CHECK SETTINGS - ONLY DELETE_ACCOUNT
 @myapp_obj.route('/settings')
 @login_required
 def settings():
 	return render_template('settings.html')
 
+#DELETE ACCOUNT FUNCTION RETURNS TO LOGIN
 @myapp_obj.route('/delete_account', methods=['GET', 'POST'])
 @login_required
 def delete_account():
@@ -133,12 +185,14 @@ def delete_account():
 
 	return render_template('delete_account.html', form=current_form)
 
+#LOGOUT FUNCTION RETURNS TO LOGIN
 @myapp_obj.route('/logout')
 @login_required
 def logout():
     logout_user()
     return redirect('/login')
 
+#LOGIN PAGE FOR LOGGING IN USER
 @myapp_obj.route('/login', methods=['POST', 'GET'])
 def login():
 	
@@ -152,7 +206,8 @@ def login():
         return redirect('/home')
         
     return render_template('login.html', form=current_form)
-   
+
+#SIGNUP PAGE FOR SIGNING UP NEW USER
 @myapp_obj.route('/signup', methods=['POST', 'GET'])
 def signup():
 	current_form = SignUpForm()
@@ -168,8 +223,7 @@ def signup():
 			return redirect('/signup')
 	return render_template('signup.html', form=current_form)
 
-
+#STANDARD PAGE, LEADS TO LOGIN IF NOT SIGNED IN
 @myapp_obj.route('/')
 def start():
-	db.create_all()
 	return redirect('/home')

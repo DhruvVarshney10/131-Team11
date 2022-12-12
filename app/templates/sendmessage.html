@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %} - Send Message{% endblock %}
+
+{% block mycontent %}
+<link rel="stylesheet" href="static/global.css">
+<div class="form-container">
+	<form action="" method="POST" novalidate>
+		<div class="symbol"></div>
+		<div>
+			<img src="../static/twitter.png" alt="">
+		</div>
+		<ul class="list">
+			{{form.hidden_tag()}}
+			<li><h2>Choose a recipient and write your message here!</h2></li>
+			<li>{{form.receiver_id}}<br></li>
+			<li>{{form.body}}<br></li>
+			<li>{{form.submit}}<br></li>
+		</ul>
+	</form>
+</div>
+{% endblock %}

@@ -27,7 +27,8 @@ class Post(db.Model):
 	username = db.Column(db.String)
 	body = db.Column(db.String(140))
 	timestamp = db.Column(db.DateTime, default=datetime)
-	image = db.Column(db.String())
+	image = db.Column(db.String)
+	reposted_from = db.Column(db.String())
 
 	def get_timestamp(self):
 		return self.timestamp
@@ -37,6 +38,12 @@ class Follower(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	follower_id = db.Column(db.Integer)
 	accepted = db.Column(db.Integer)
+
+class Message(db.Model):
+	id = db.Column(db.Integer, primary_key = True)
+	receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+	sender_username = db.Column(db.String)
+	body = db.Column(db.String(240))
 
 @login.user_loader
 def load_user(id):

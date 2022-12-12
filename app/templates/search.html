@@ -5,14 +5,19 @@
 {% block mycontent %}
 <link rel="stylesheet" href="static/global.css">
 <div class="form-container">
+	<div class="symbol">
+		<a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
+	</div>
 	<ul class="list">
-		<h2>You searched: {{ searched }}</h2>
+		<li>You searched: {{ searched }}</li>
+		<br>
+		<br>
 		{% for u in users %}
 			<form method="POST" action="{{url_for('follow') }}">
 				{{ form.hidden_tag() }}
 				<p>{{ u.username }}</p>
 				<input type="hidden" value={{ u.id }} name="username">
-				<button type="submit">Follow</button>
+				<button class="FollowButton" type="submit">Follow</button>
 			</form>
 		{% endfor %}
 	</ul>

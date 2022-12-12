@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-    {% block title %} - Login{% endblock %}
+    {% block title %} - Home{% endblock %}
 
     {% block mycontent %}
     <div id="header">
@@ -41,10 +41,20 @@
     {% for Post in posts %}
     <div id="tweet-wrap">
       <span>{{ Post.username }}</span><br><a>{{Post.timestamp.date()}}</a>
+      {% if Post.reposted_from %}
+      	<a>Reposted from: {{Post.reposted_from}}</a>
+      {% endif %}
       {% if Post.image %}
       	<p><img src={{ Post.image }} style="maxwidth:200px;height:200px;"></p>
       {% endif %}
       <p>{{ Post.body }}<br></p>
+      <form method="POST" action="{{ url_for('repost') }}">
+      	<input type="hidden" value={{Post.body}} name="post">
+      	<input type="hidden" value={{Post.image}} name="image">
+      	<input type="hidden" value={{Post.username}} name="username">
+      	{{form.hidden_tag()}}
+        <button class="FollowButton" type="submit">Repost</button>
+      </form>
     </div>
     {% endfor %}
     {% endblock %}
