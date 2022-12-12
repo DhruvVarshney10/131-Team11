@@ -5,8 +5,16 @@
 {% block mycontent %}
 <link rel="stylesheet" href="static/global.css">
 <div class="form-container">
+	<div>
+		<a href="/home"><img src="../static/Twitter_black.png" alt=""></a>
+	</div>
 	<ul class="list">
-		<p><a href='/follower-requests'>Check Follower Requests</a></p>
+		<li><a href='/follower-requests'>Check Follower Requests</a></li>
+		<li><a href='/send-message'>Send a new message</a></li>
+		{% for m in messages %}
+			<p style="font-weight: bold;">{{m.sender_username}} says: </p><br>
+			<p>{{m.body}}</p>
+		{% endfor %}
 	</ul>
 </div>
 {% endblock %}
