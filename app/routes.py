@@ -185,7 +185,29 @@ def delete_account():
 
 	return render_template('delete_account.html', form=current_form)
 
-#LOGOUT FUNCTION RETURNS TO LOGIN
+#LOGOUT FUNCTION RETURNS TO LOGIN#DELETE ACCOUNT FUNCTION RETURNS TO LOGIN
+@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
+@login_required
+def delete_account():
+	current_form = Delete_Account_Form()
+	if current_form.validate_on_submit():
+
+		if current_user.check_password(current_form.password.data):
+			for post in current_user.posts.all():
+				db.session.delete(post)
+			for follows in Follower.query.filter_by(user_id=current_user.id):
+				db.session.delete(follows)
+			for follow_backs in Follower.query.filter_by(follower_id=current_user.id):
+				db.session.delete(follow_backs)
+			db.session.delete(current_user)
+			db.session.commit()
+			print("The Account has been deleted")
+			return redirect("/login")
+
+		else:
+			print("Incorrect Password!")
+
+	return render_template('delete_account.html', form=current_form)
 @myapp_obj.route('/logout')
 @login_required
 def logout():
@@ -207,23 +229,28 @@ def login():
         
     return render_template('login.html', form=current_form)
 
-#SIGNUP PAGE FOR SIGNING UP NEW USER
-@myapp_obj.route('/signup', methods=['POST', 'GET'])
-def signup():
-	current_form = SignUpForm()
-	if current_form.validate_on_submit():
-		testuser = User.query.filter_by(username=current_form.username.data).first()
-		if testuser is None:
-			user = User(username=current_form.username.data, password=generate_password_hash(current_form.password.data))
-			db.session.add(user)
-			db.session.commit()
-			login_user(user)
-			return redirect('/home')
-		else:
-			return redirect('/signup')
-	return render_template('signup.html', form=current_form)
+#LIKES 
+@myapp_obj.route('/like/<post_id>', methods=['POST', 'GET'])
+def like(post_id):
+	post = Post.query.filter_by(id = post_id)
+	like = Like.query.filter_by(user = current_user.id, post_id = post_id).first()
+
+	if not post:
+		print("Post does not exist")
+	
+	elif like:
+		db.session.add(like)
+		db.session.commit()
+	
+	else:
+		like = Like(user = current_user.id, post_id = post_id)
+		db.session.add(like)
+		db.session.commit()
+			
+	return redirect(url_for('views.like'))
 
 #STANDARD PAGE, LEADS TO LOGIN IF NOT SIGNED IN
 @myapp_obj.route('/')
 def start():
 	return redirect('/home')
+
