@@ -5,17 +5,16 @@
 	<link rel="stylesheet" href="static/global.css">
 	<div class="form-container">
 		<form action="" method="POST" novalidate>
-			<div class="symbol"></div>
-			<div>
-				<img src="../static/twitter.png" alt="">
+			<div class="symbol">
+				<a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
 			</div>
 			<ul class="list">
 				{{form.hidden_tag()}}
-				<li><h2>Write your new post below!</h2></li>
+				<li><h2>Write your new post below</h2></li>
 				<li>{{form.post()}} <br></li>
 				<li>If you want to add an image to your post, paste link below:<br></li>
 				<li>{{form.image()}} <br></li>
-				<li>{{form.submit()}} <br></li>
+				<br><button class="button" type="submit">Post</button>
 			</ul>
 		</form>
 	</div>

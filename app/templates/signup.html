@@ -6,9 +6,8 @@
 <link rel="stylesheet" href="static/global.css">
 <div class="form-container">
 	<form action="" method="POST" novalidate>
-		<div class ="symbol"></div>
-		<div>
-			<img src="../static/Twitter_black.png" alt="">
+		<div class="symbol">
+			<a><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
 		</div>
 		<ul class="list">
 			{{form.hidden_tag()}}
@@ -17,7 +16,7 @@
 			<li>{{form.username()}} <br></li>
 			<li>{{form.password.label}} <br></li> 
 			<li>{{form.password()}} <br></li>
-			<li>{{form.submit()}} <br></li>
+			<button class="button" type="submit">Sign Up</button>
 			
 		</ul>
 	</form>

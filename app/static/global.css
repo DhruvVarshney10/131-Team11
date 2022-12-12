@@ -4,8 +4,8 @@ body{
     padding-top: 10vh;
 }
 
-div{
-    margin: -30px 250px;
+.form-container .symbol{
+    margin: auto;
     height: 95px;
     width: 75px;
     display: flex;
@@ -32,52 +32,78 @@ ul.list{
     
     }
     
-    ul.list.li{
+ul.list.li{
     width: 250px;
-    }
+}
     
-    /* Sign in to To-eater */
-    ul.list li:nth-child(2){
-        font-size: 100%;
-        color:rgb(24, 170, 255);
-        margin-bottom: 50px;
-    }
+/* Sign in to To-eater */
+ul.list li:nth-child(2){
+    font-size: 100%;
+    color:rgb(24, 170, 255);
+    margin-bottom: 50px;
+}
     
-    /* Username */
-    ul.list li:nth-child(3){
-        font-size: 90%;
-        margin-bottom: 10px;
-    }
+/* Username */
+ul.list li:nth-child(3){
+    font-size: 90%;
+    margin-bottom: 10px;
+}
     
-    /* Username entry field */
-    ul.list li:nth-child(4){
-        margin-bottom: 30px;
-    }
+/* Username entry field */
+ul.list li:nth-child(4){
+    margin-bottom: 30px;
+}
     
-    /* Password */
-    ul.list li:nth-child(5){
-        font-size: 90%;
-        margin-bottom: 0px;
-    }
+/* Password */
+ul.list li:nth-child(5){
+    font-size: 90%;
+    margin-bottom: 0px;
+}
 
-    /* Password entry field */
-    ul.list li:nth-child(6){
-        margin-bottom: 30px;
-    }
+/* Password entry field */
+ul.list li:nth-child(6){
+    margin-bottom: 30px;
+}
 
 
-    /* Sign In Button */
-    ul.list li:nth-child(7){
-        margin-bottom: 50px;
-    }
+/* Sign In Button */
+ul.list li:nth-child(7){
+    margin-bottom: 50px;
+}
 
-    /* Sign-up text */
-    ul.list li:nth-child(8){
-        font-size: 70%;
-    }
+/* Sign-up text */
+ul.list li:nth-child(8){
+    font-size: 70%;
+}
 
-    /* Sign-up link */
-    a{
-        font-size: 80%;
-        color:rgb(24, 170, 255);
-    }
+/* Sign-up link */
+a{
+    font-size: 80%;
+    color:rgb(24, 170, 255);
+}
+
+.button{
+    background-color: rgb(24, 170, 255);
+    color: rgb(0, 0, 0);
+    padding: 15px 25px;
+    border-radius: 5px;
+    border: none;
+    font-size: 60%;
+    margin-bottom: 30px;
+    text-decoration-line: none;
+}
+
+.FollowButton{
+    background-color: rgb(24, 170, 255);
+    color: rgb(0, 0, 0);
+    padding: 7px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 50%;
+    margin-bottom: 30px;
+    text-decoration-line: none;
+}
+
+h2.Request-list{
+    color:rgb(24, 170, 255);
+}
