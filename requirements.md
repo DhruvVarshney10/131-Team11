@@ -32,12 +32,12 @@
 
 - **Primary Sequence:**
   
-  1. Select the messages page.
+  1. Select the messages page and then the send message page.
   2. Select a receiver from list of followers.
   3. Type a text in the box that needs to be sent. 
   4. Press send to send the text.
 
-- **Primary Postconditions:** The text shows up on the message thread for both users.  
+- **Primary Postconditions:** The receiever receives the message on their messages page.
 
 - **Alternate Sequence:** The receiver account does no longer exist (the receiver account was deleted before the message was sent).
   
