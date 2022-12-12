@@ -9,11 +9,11 @@ class LoginForm(FlaskForm):
 
 class SignUpForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(8)])
     submit = SubmitField('Sign Up')
 
 class PostForm(FlaskForm):
-	post = TextAreaField('Post', validators=[DataRequired(), Length(1,140)])
+	post = TextAreaField('Post', validators=[Length(max=140)])
 	image = StringField('Image')
 	submit = SubmitField('Post')
 
@@ -32,3 +32,9 @@ class FollowForm(FlaskForm):
 class AcceptForm(FlaskForm):
 	username = HiddenField('username')
 	submit = SubmitField('Accept')
+
+class RepostForm(FlaskForm):
+	username = HiddenField('username')
+	post = HiddenField('post')
+	image = HiddenField('image')
+	submit = SubmitField('Repost')
