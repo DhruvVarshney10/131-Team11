@@ -4,7 +4,7 @@ body {
 
 #posts {
 	position: fixed; top:50px; 
-	color: #FFFFFF;
+	color: #ffffff;
 	font-size: 30px;
 }
 
@@ -14,27 +14,31 @@ body {
 
 #tweet-wrap {
   max-width: 500px;
-  background: #fff;
+  background: rgb(0, 0, 0);
   margin: 0 auto;
   margin-top: 50px;
   border-radius:3px;
   padding: 30px;
   overflow: auto;
+  color: #ffffff;
 }
 
 #tweet-wrap span {
   font-weight:bold;
   font-size: 20px;
+  color: #ffffff;
 }
 
 #tweet-wrap a {
   font-weight:bold;
   font-size: 15px;
+  color: #ffffff;
 }
 
 #tweet-wrap p{
   font-weight:normal;
   margin-top: 10px;
+  color: #ffffff;
 }
 
 #header {
@@ -82,4 +86,15 @@ body {
 
 #logout{
   position: fixed; left: 94.25%; top: 0.5%;
+}
+
+.FollowButton{
+  background-color: rgb(24, 170, 255);
+  color: rgb(0, 0, 0);
+  padding: 7px 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 70%;
+  margin-bottom: 30px;
+  text-decoration-line: none;
 }

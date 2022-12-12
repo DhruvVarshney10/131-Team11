@@ -5,23 +5,23 @@
     {% block mycontent %}
     <link rel="stylesheet" href="static/global.css">
     <div class="form-container">
-    	<form action="" method="POST" novalidate>
-        	<div class="symbol"></div>
-       		<div>
-            	<img src="../static/Twitter_black.png" alt="">
-        	</div>
-        	<ul class="list">
+        <form action="" method="POST" novalidate>
+            <div class="symbol">
+                <a><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
+            </div>
+            <ul class="list">
                 {{form.hidden_tag()}}
                 <li><h2>Sign in to To-eater</h2></li>
                 <li>{{form.username.label}} <br></li>
                 <li>{{form.username()}} <br></li>
                 <li>{{form.password.label}} <br></li>
                 <li>{{form.password()}} <br></li>
-                <li>{{form.submit()}} <br></li>
+                <button class="button" type="submit">Sign in</button>
                 <li><p>Don't have an account? Sign up below!</p></li>
-                <a class="button" href="/signup">Sign Up</a>
+                <br><a class="button" href="/signup">Sign Up</a>
             </ul>
         </form>
         <!-- just found out how to do html comments -->
     </div>
     {% endblock %}
+

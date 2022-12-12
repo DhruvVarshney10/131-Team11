@@ -6,16 +6,15 @@
     <link rel="stylesheet" href="static/global.css">
     <div class="form-container">
     	<form action="" method="POST" novalidate>
-        	<div class="symbol"></div>
-       		<div>
-            	<img src="../static/Twitter_black.png" alt="">
-        	</div>
+        	<div class="symbol">
+                <a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
+            </div>
         	<ul class="list">
                 {{form.hidden_tag()}}
-                <li><h2>Please enter the password to delete account</h2></li>
+                <li>Please enter the password to delete account<br></li>
                 <li>{{form.password.label}} <br></li>
                 <li>{{form.password()}} <br></li>
-                <li>{{form.submit()}} <br></li>
+                <button class="button" type="submit">Delete Account</button>
             </ul>
         </form>
     </div>
