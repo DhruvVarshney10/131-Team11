@@ -61,7 +61,7 @@
       {% endif %}
       <p>{{ Post.body }}<br></p>
       <div id='like'>
-        <a href="/like/{{Post.id}}"><img src="../static/like.png" width = "50" height = "50"></a>
+        <a href="/like/{{Post .id}}"><img src="../static/like.png" width = "50" height = "50"></a>
       </div>
       <form method="POST" action="{{ url_for('repost') }}">
       	<input type="hidden" value={{Post.id}} name="post">
