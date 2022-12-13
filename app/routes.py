@@ -151,7 +151,6 @@ def requests():
 	for r in requests:
 		users.append(User.query.filter_by(id=r.user_id).first())
 	if current_form.validate_on_submit():
-	
 		print(User.query.filter_by(id=current_form.username.data).first())
 		request = requests[users.index(User.query.filter_by(id=current_form.username.data).first())]
 		db.session.delete(request)
@@ -193,29 +192,7 @@ def delete_account():
 
 	return render_template('delete_account.html', form=current_form)
 
-#LOGOUT FUNCTION RETURNS TO LOGIN#DELETE ACCOUNT FUNCTION RETURNS TO LOGIN
-@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
-@login_required
-def delete_account():
-	current_form = Delete_Account_Form()
-	if current_form.validate_on_submit():
-
-		if current_user.check_password(current_form.password.data):
-			for post in current_user.posts.all():
-				db.session.delete(post)
-			for follows in Follower.query.filter_by(user_id=current_user.id):
-				db.session.delete(follows)
-			for follow_backs in Follower.query.filter_by(follower_id=current_user.id):
-				db.session.delete(follow_backs)
-			db.session.delete(current_user)
-			db.session.commit()
-			print("The Account has been deleted")
-			return redirect("/login")
-
-		else:
-			print("Incorrect Password!")
-
-	return render_template('delete_account.html', form=current_form)
+#LOGOUT RETURNS TO LOGIN
 @myapp_obj.route('/logout')
 @login_required
 def logout():
