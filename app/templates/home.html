@@ -60,6 +60,9 @@
       	<p><img src={{ Post.image }} style="maxwidth:200px;height:200px;"></p>
       {% endif %}
       <p>{{ Post.body }}<br></p>
+      <div id='like'>
+        <a href="/like/{{post.id}}"><img src="../static/like.png" width = "50" height = "50"></a>
+      </div>
       <form method="POST" action="{{ url_for('repost') }}">
       	<input type="hidden" value={{Post.id}} name="post">
       	{{form.hidden_tag()}}
