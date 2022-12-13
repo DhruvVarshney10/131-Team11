@@ -53,8 +53,7 @@
 	1. By selecting logout from the header, user will be logged out instantly.
 - Post interactions
 	1. Posts from people you follow display on the user home page with a few options.
-	2. Your own posts are able to be deleted with a delete tweet button.
-	- This will prompt you to make sure you want to delete your tweet
+	2. Your own posts are able to be deleted with a delete tweet button that displays only under your own tweets
 	3. For every post you are able to leave a like on the post.
 	4. For every post you are able to repost the same one
 	- This will display who you reposted from

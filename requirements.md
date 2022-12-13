@@ -131,16 +131,15 @@
 
 - **Pre-conditions:** User has an account, is logged in and has some posts on their account
 
-- **Trigger:** User clicks on the delete/edit button under the tweet.
+- **Trigger:** User clicks on the delete button under the tweet.
 
 - **Primary Sequence:**
 
   1. User completes the log-in procedure and redirected to their account's home page.
   2. On the home page the user can view their own posts.
-  3. The user clicks "Delete" to delete it.  
-  4. When the user selects "Delete" they will be asked - "Would you like to delete this post", and it will be deleted if "Yes" is selected.  
+  3. The user clicks "Delete" to delete it.    
 
-- **Primary Postconditions:** The tweet that is selected to be deleted is deleted from user's Home page
+- **Primary Postconditions:** The tweet that is selected to be deleted is deleted from user's Home page and posts database
 
 - **Alternate Sequence:** The user has not created any posts.
 
