@@ -45,7 +45,7 @@
   2. Select a receiver from list of followers.
   3. Type a text in the box that needs to be sent. 
   4. Press send to send the text.
-  5. An error is displayed "User does no longer exist" (the message remains unsent).
+  5. The page refreshes and the receiver account is removed from the selectable list
 
 2. Adding an image to a post
 - **Pre-conditions:** User is logged in and is on the create a post tab.
@@ -63,7 +63,7 @@
 - **Alternate Sequence:** The image may not have a valid URL.
 
   1. Press the "create post" button.
-  2. An image is doesn't have a valid URL .
+  2. An image is doesn't have a valid URL.
   3. The post does not include the image. 
 
 3. Search users/Friends

@@ -113,6 +113,7 @@ def sendmsg():
 	for m in Message.query.all():
 		if m.receiver_id == current_user.id:
 			messages.append(m)
+	messages.reverse()
 	return render_template('messages.html', messages=messages)
 
 #PAGE TO SEND NEW MESSAGE
