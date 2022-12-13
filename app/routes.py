@@ -20,6 +20,9 @@ def homepage():
 	posts.extend(current_user.posts.all())
 	posts.sort(key=Post.get_timestamp)
 	posts.reverse()
+	if posts == []:
+		flash("You're not following anyone with any posts")
+		flash("Create a new post or search for new users!")
 	return render_template('home.html', posts=posts)
 
 #SEARCH PAGE FROM HOMEPAGE
@@ -72,14 +75,15 @@ def base():
 def repost():
 	current_form = RepostForm()
 	if current_form.validate_on_submit():
-		newBody = current_form.post.data
-		newImage = current_form.image.data
-		print(newBody)
-		if newBody == 'None':
-			newBody == None
-		if newImage == 'None':
-			newImage == None
-		repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=current_form.username.data)
+		oldPost = Post.query.filter_by(id=current_form.post.data).first()
+		newBody = oldPost.body
+		newImage = oldPost.image
+		if newBody == None:
+			repost = Post(body='', user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=oldPost.username)
+		elif newImage == None:
+			repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image='', reposted_from=oldPost.username)
+		else:
+			repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=oldPost.username)
 		db.session.add(repost)
 		db.session.commit()
 	return redirect('/home')
@@ -90,11 +94,12 @@ def repost():
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
-		newimage = current_form.image.data
-		if current_form.post.data == '' and newimage == '':
+		newImage = current_form.image.data
+		newPost = current_form.post.data
+		if newPost == '' and newImage == '':
 			return redirect('/post')
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newimage)
+		post = Post(body=newPost, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newImage)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')
@@ -122,10 +127,13 @@ def send():
 	current_form.receiver_id.choices = [(user.id, user.username) for user in followers]
 	print(followers)
 	if current_form.validate_on_submit():
-		message = Message(body=current_form.body.data, receiver_id=current_form.receiver_id.data, sender_username=current_user.username)
-		print(message)
-		db.session.add(message)
-		db.session.commit()
+		if not User.query.filter_by(id=current_form.receiver_id.data) == None:
+			message = Message(body=current_form.body.data, receiver_id=current_form.receiver_id.data, sender_username=current_user.username)
+			print(message)
+			db.session.add(message)
+			db.session.commit()
+		else:
+			flash("User no longer exists")
 		return redirect('/messages')
 	return render_template('sendmessage.html', form=current_form, followers=followers)
 
@@ -143,7 +151,6 @@ def requests():
 	for r in requests:
 		users.append(User.query.filter_by(id=r.user_id).first())
 	if current_form.validate_on_submit():
-	
 		print(User.query.filter_by(id=current_form.username.data).first())
 		request = requests[users.index(User.query.filter_by(id=current_form.username.data).first())]
 		db.session.delete(request)
@@ -185,29 +192,7 @@ def delete_account():
 
 	return render_template('delete_account.html', form=current_form)
 
-#LOGOUT FUNCTION RETURNS TO LOGIN#DELETE ACCOUNT FUNCTION RETURNS TO LOGIN
-@myapp_obj.route('/delete_account', methods=['GET', 'POST'])
-@login_required
-def delete_account():
-	current_form = Delete_Account_Form()
-	if current_form.validate_on_submit():
-
-		if current_user.check_password(current_form.password.data):
-			for post in current_user.posts.all():
-				db.session.delete(post)
-			for follows in Follower.query.filter_by(user_id=current_user.id):
-				db.session.delete(follows)
-			for follow_backs in Follower.query.filter_by(follower_id=current_user.id):
-				db.session.delete(follow_backs)
-			db.session.delete(current_user)
-			db.session.commit()
-			print("The Account has been deleted")
-			return redirect("/login")
-
-		else:
-			print("Incorrect Password!")
-
-	return render_template('delete_account.html', form=current_form)
+#LOGOUT RETURNS TO LOGIN
 @myapp_obj.route('/logout')
 @login_required
 def logout():
@@ -223,7 +208,7 @@ def login():
     if current_form.validate_on_submit():
         user = User.query.filter_by(username=current_form.username.data).first()
         if user is None or not user.check_password(current_form.password.data):
-            return redirect('/login')
+        	return redirect('/login')
         login_user(user)
         return redirect('/home')
         
@@ -252,5 +237,6 @@ def like(post_id):
 #STANDARD PAGE, LEADS TO LOGIN IF NOT SIGNED IN
 @myapp_obj.route('/')
 def start():
+	db.create_all()
 	return redirect('/home')
 

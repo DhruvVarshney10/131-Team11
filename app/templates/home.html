@@ -38,6 +38,18 @@
         
     </div>
 
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+				{% for message in messages %}
+					<div id="tweet-wrap">
+						<p>{{ message }}</p>
+					</div>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	</div>
     {% for Post in posts %}
     <div id="tweet-wrap">
       <span>{{ Post.username }}</span><br><a>{{Post.timestamp.date()}}</a>
@@ -49,12 +61,10 @@
       {% endif %}
       <p>{{ Post.body }}<br></p>
       <div id='like'>
-        <a href="/like/{{post.id}}"><img src="../static/like.png" width = "50" height = "50"></a>
+        <a href="/like/{{Post.id}}"><img src="../static/like.png" width = "50" height = "50"></a>
       </div>
       <form method="POST" action="{{ url_for('repost') }}">
-      	<input type="hidden" value={{Post.body}} name="post">
-      	<input type="hidden" value={{Post.image}} name="image">
-      	<input type="hidden" value={{Post.username}} name="username">
+      	<input type="hidden" value={{Post.id}} name="post">
       	{{form.hidden_tag()}}
         <button class="FollowButton" type="submit">Repost</button>
       </form>

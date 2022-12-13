@@ -64,7 +64,7 @@
 
   1. Press the "create post" button.
   2. An image is doesn't have a valid URL .
-  3. The post appears without the image. 
+  3. The post does not include the image. 
 
 3. Search users/Friends
 - **Pre-conditions:** User should select a search button to search up someone
@@ -76,7 +76,7 @@
   1. Select search from main page.
   2. Type username or keyword for username to search.
   3. Press button to search for that username
-  4. All users who have the keyword searched or the exact username are displayed
+  4. All users who have the keyword searched are displayed
 
 - **Primary Postconditions:** The page displays the user with that username
 
@@ -145,5 +145,5 @@
 - **Alternate Sequence:** The user has not created any posts.
 
   1. User enters account.
-  2. The User doesnot see any posts and sees the message "No posts to show".
-  3. User is encouraged to either create a post to delete it.
+  2. The User does not see any posts 
+  3. User sees a message encouraging them to follow new accounts.
