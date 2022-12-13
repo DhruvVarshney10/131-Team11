@@ -38,6 +38,18 @@
         
     </div>
 
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			<ul class=flashes>
+				{% for message in messages %}
+					<div id="tweet-wrap">
+						<p>{{ message }}</p>
+					</div>
+				{% endfor %}
+			</ul>
+		{% endif %}
+	{% endwith %}
+	</div>
     {% for Post in posts %}
     <div id="tweet-wrap">
       <span>{{ Post.username }}</span><br><a>{{Post.timestamp.date()}}</a>

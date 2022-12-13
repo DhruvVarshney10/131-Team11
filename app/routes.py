@@ -20,6 +20,9 @@ def homepage():
 	posts.extend(current_user.posts.all())
 	posts.sort(key=Post.get_timestamp)
 	posts.reverse()
+	if posts == []:
+		flash("You're not following anyone with any posts")
+		flash("Create a new post or search for new users!")
 	return render_template('home.html', posts=posts)
 
 #SEARCH PAGE FROM HOMEPAGE
@@ -124,10 +127,13 @@ def send():
 	current_form.receiver_id.choices = [(user.id, user.username) for user in followers]
 	print(followers)
 	if current_form.validate_on_submit():
-		message = Message(body=current_form.body.data, receiver_id=current_form.receiver_id.data, sender_username=current_user.username)
-		print(message)
-		db.session.add(message)
-		db.session.commit()
+		if not User.query.filter_by(id=current_form.receiver_id.data) == None:
+			message = Message(body=current_form.body.data, receiver_id=current_form.receiver_id.data, sender_username=current_user.username)
+			print(message)
+			db.session.add(message)
+			db.session.commit()
+		else:
+			flash("User no longer exists")
 		return redirect('/messages')
 	return render_template('sendmessage.html', form=current_form, followers=followers)
 
@@ -203,7 +209,7 @@ def login():
     if current_form.validate_on_submit():
         user = User.query.filter_by(username=current_form.username.data).first()
         if user is None or not user.check_password(current_form.password.data):
-            return redirect('/login')
+        	return redirect('/login')
         login_user(user)
         return redirect('/home')
         
