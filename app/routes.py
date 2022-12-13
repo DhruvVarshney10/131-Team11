@@ -1,6 +1,6 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
-from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm, RepostForm, MessageForm
+from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm, RepostForm, MessageForm, DeletePostForm
 from app.models import User, Post, Follower, Message
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
@@ -23,7 +23,18 @@ def homepage():
 	if posts == []:
 		flash("You're not following anyone with any posts")
 		flash("Create a new post or search for new users!")
-	return render_template('home.html', posts=posts)
+	return render_template('home.html', posts=posts, userid=current_user.id)
+
+@myapp_obj.route('/delete-post', methods=['POST','GET'])
+@login_required
+def deletePost():
+	current_form = DeletePostForm()
+	if current_form.validate_on_submit():
+		remove_post = Post.query.filter_by(id=current_form.post_id.data).first()
+		print(remove_post)
+		db.session.delete(remove_post)
+		db.session.commit()
+		return redirect('/home')
 
 #SEARCH PAGE FROM HOMEPAGE
 @myapp_obj.route('/search', methods=['POST','GET'])
@@ -113,6 +124,7 @@ def sendmsg():
 	for m in Message.query.all():
 		if m.receiver_id == current_user.id:
 			messages.append(m)
+	messages.reverse()
 	return render_template('messages.html', messages=messages)
 
 #PAGE TO SEND NEW MESSAGE
@@ -233,6 +245,22 @@ def like(post_id):
 		db.session.commit()
 			
 	return redirect(url_for('views.like'))
+
+#SIGNUP PAGE FOR SIGNING UP NEW USER
+@myapp_obj.route('/signup', methods=['POST', 'GET'])
+def signup():
+	current_form = SignUpForm()
+	if current_form.validate_on_submit():
+		testuser = User.query.filter_by(username=current_form.username.data).first()
+		if testuser is None:
+			user = User(username=current_form.username.data, password=generate_password_hash(current_form.password.data))
+			db.session.add(user)
+			db.session.commit()
+			login_user(user)
+			return redirect('/home')
+		else:
+			return redirect('/signup')
+	return render_template('signup.html', form=current_form)
 
 #STANDARD PAGE, LEADS TO LOGIN IF NOT SIGNED IN
 @myapp_obj.route('/')
