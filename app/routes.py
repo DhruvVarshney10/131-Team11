@@ -72,14 +72,15 @@ def base():
 def repost():
 	current_form = RepostForm()
 	if current_form.validate_on_submit():
-		newBody = current_form.post.data
-		newImage = current_form.image.data
-		print(newBody)
-		if newBody == 'None':
-			newBody == None
-		if newImage == 'None':
-			newImage == None
-		repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=current_form.username.data)
+		oldPost = Post.query.filter_by(id=current_form.post.data).first()
+		newBody = oldPost.body
+		newImage = oldPost.image
+		if newBody == None:
+			repost = Post(body='', user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=oldPost.username)
+		elif newImage == None:
+			repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image='', reposted_from=oldPost.username)
+		else:
+			repost = Post(body=newBody, user_id=current_user.id, username=current_user.username, timestamp = datetime.now(), image=newImage, reposted_from=oldPost.username)
 		db.session.add(repost)
 		db.session.commit()
 	return redirect('/home')
@@ -90,11 +91,12 @@ def repost():
 def newtweet():
 	current_form = PostForm()
 	if current_form.validate_on_submit():
-		newimage = current_form.image.data
-		if current_form.post.data == '' and newimage == '':
+		newImage = current_form.image.data
+		newPost = current_form.post.data
+		if newPost == '' and newImage == '':
 			return redirect('/post')
 		current_datetime = datetime.now()
-		post = Post(body=current_form.post.data, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newimage)
+		post = Post(body=newPost, user_id=current_user.id, username=current_user.username, timestamp = current_datetime, image=newImage)
 		db.session.add(post)
 		db.session.commit()
 		return redirect('/home')
@@ -226,4 +228,5 @@ def signup():
 #STANDARD PAGE, LEADS TO LOGIN IF NOT SIGNED IN
 @myapp_obj.route('/')
 def start():
+	db.create_all()
 	return redirect('/home')

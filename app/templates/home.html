@@ -49,9 +49,7 @@
       {% endif %}
       <p>{{ Post.body }}<br></p>
       <form method="POST" action="{{ url_for('repost') }}">
-      	<input type="hidden" value={{Post.body}} name="post">
-      	<input type="hidden" value={{Post.image}} name="image">
-      	<input type="hidden" value={{Post.username}} name="username">
+      	<input type="hidden" value={{Post.id}} name="post">
       	{{form.hidden_tag()}}
         <button class="FollowButton" type="submit">Repost</button>
       </form>
