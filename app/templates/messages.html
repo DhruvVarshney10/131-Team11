@@ -5,15 +5,15 @@
 {% block mycontent %}
 <link rel="stylesheet" href="static/global.css">
 <div class="form-container">
-	<div>
-		<a href="/home"><img src="../static/Twitter_black.png" alt=""></a>
+	<div class="symbol">
+		<a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
 	</div>
 	<ul class="list">
 		<li><a href='/follower-requests'>Check Follower Requests</a></li>
 		<li><a href='/send-message'>Send a new message</a></li>
 		{% for m in messages %}
-			<p style="font-weight: bold;">{{m.sender_username}} says: </p><br>
-			<p>{{m.body}}</p>
+			<p style="font-weight: bold;">{{m.sender_username}}: </p>
+			<p>{{m.body}}</p><br>
 		{% endfor %}
 		{% with messages = get_flashed_messages() %}
  			 {% if messages %}
