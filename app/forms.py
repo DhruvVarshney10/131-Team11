@@ -34,6 +34,10 @@ class FollowForm(FlaskForm):
 	username = HiddenField('User')
 	submit = SubmitField('Follow')
 
+class DeletePostForm(FlaskForm):
+	post_id = HiddenField('post_id')
+	submit = SubmitField('Delete')
+
 class AcceptForm(FlaskForm):
 	username = HiddenField('username')
 	submit = SubmitField('Accept')

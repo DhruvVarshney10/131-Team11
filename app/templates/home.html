@@ -68,6 +68,13 @@
       	{{form.hidden_tag()}}
         <button class="FollowButton" type="submit">Repost</button>
       </form>
+      {% if Post.user_id == userid %}
+      <form method="POST" action="{{ url_for('deletePost') }}">
+      	<input type="hidden" value={{Post.id}} name="post_id">
+      	{{form.hidden_tag()}}
+		<button class="FollowButton" type="submit">Delete</button>
+	 </form>
+     {% endif %}
     </div>
     {% endfor %}
     {% endblock %}
