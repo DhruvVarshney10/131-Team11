@@ -208,6 +208,10 @@ def delete_account():
 				db.session.delete(follows)
 			for follow_backs in Follower.query.filter_by(follower_id=current_user.id):
 				db.session.delete(follow_backs)
+			for messages_to in Message.query.filter_by(receiver_id=current_user.id):
+				db.session.delete(messages_to)
+			for messages_from in Message.query.filter_by(sender_username=current_user.username):
+				db.session.delete(messages_from)
 			db.session.delete(current_user)
 			db.session.commit()
 			print("The Account has been deleted")
