@@ -15,15 +15,25 @@ from datetime import datetime
 def homepage():
 	print(current_user)
 	posts = []
+	likes = []
 	for f in Follower.query.filter_by(user_id=current_user.id, accepted=1):
 		posts.extend(User.query.filter_by(id=f.follower_id).first().posts.all())
 	posts.extend(current_user.posts.all())
+
+	for l in posts:
+		Likes = Like.query.filter_by(post_id=l.id)
+		count = 0
+		for h in Likes:
+			count+=1
+		likes.append(count)
+		print({count})
+
 	posts.sort(key=Post.get_timestamp)
 	posts.reverse()
 	if posts == []:
 		flash("You're not following anyone with any posts")
 		flash("Create a new post or search for new users!")
-	return render_template('home.html', posts=posts, userid=current_user.id)
+	return render_template('home.html', posts=posts, userid=current_user.id, like=likes)
 
 @myapp_obj.route('/delete-post', methods=['POST','GET'])
 @login_required

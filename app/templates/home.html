@@ -50,6 +50,7 @@
 		{% endif %}
 	{% endwith %}
 	</div>
+    int a = 0;
     {% for Post in posts %}
     <div id="tweet-wrap">
       <span>{{ Post.username }}</span><br><a>{{Post.timestamp.date()}}</a>
@@ -61,6 +62,8 @@
       {% endif %}
       <p>{{ Post.body }}<br></p>
       <div id='like'>
+        <p>{{a}}</p>
+        <p>{{like[a]}}</p>
         <a href="/like/{{Post .id}}"><img src="../static/like.png" width = "50" height = "50"></a>
       </div>
       <form method="POST" action="{{ url_for('repost') }}">
@@ -75,6 +78,8 @@
 		<button class="FollowButton" type="submit">Delete</button>
 	 </form>
      {% endif %}
+     a = a+1;
     </div>
+    
     {% endfor %}
     {% endblock %}
