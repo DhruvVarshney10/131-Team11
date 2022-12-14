@@ -29,6 +29,7 @@ class Post(db.Model):
 	timestamp = db.Column(db.DateTime, default=datetime)
 	image = db.Column(db.String)
 	reposted_from = db.Column(db.String())
+	likes = db.relationship('Like', backref='post', lazy='dynamic')
 
 	def get_timestamp(self):
 		return self.timestamp
@@ -44,6 +45,12 @@ class Message(db.Model):
 	receiver_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	sender_username = db.Column(db.String)
 	body = db.Column(db.String(240))
+
+class Like(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('post.id'))	
+	post_id = db.Column(db.Integer)
+
 
 @login.user_loader
 def load_user(id):

@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
 from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm, RepostForm, MessageForm, DeletePostForm
-from app.models import User, Post, Follower, Message
+from app.models import User, Post, Follower, Message, Like
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
 from flask_login import login_required
@@ -15,15 +15,25 @@ from datetime import datetime
 def homepage():
 	print(current_user)
 	posts = []
+	likes = []
 	for f in Follower.query.filter_by(user_id=current_user.id, accepted=1):
 		posts.extend(User.query.filter_by(id=f.follower_id).first().posts.all())
 	posts.extend(current_user.posts.all())
+
+	for l in posts:
+		Likes = Like.query.filter_by(post_id=l.id)
+		count = 0
+		for h in Likes:
+			count+=1
+		likes.append(count)
+		print({count})
+
 	posts.sort(key=Post.get_timestamp)
 	posts.reverse()
 	if posts == []:
 		flash("You're not following anyone with any posts")
 		flash("Create a new post or search for new users!")
-	return render_template('home.html', posts=posts, userid=current_user.id)
+	return render_template('home.html', posts=posts, userid=current_user.id, like=likes)
 
 @myapp_obj.route('/delete-post', methods=['POST','GET'])
 @login_required
@@ -230,21 +240,21 @@ def login():
 @myapp_obj.route('/like/<post_id>', methods=['POST', 'GET'])
 def like(post_id):
 	post = Post.query.filter_by(id = post_id)
-	like = Like.query.filter_by(user = current_user.id, post_id = post_id).first()
+	like = Like.query.filter_by(user_id = current_user.id, post_id = post_id).first()
 
 	if not post:
 		print("Post does not exist")
 	
 	elif like:
-		db.session.add(like)
+		db.session.delete(like)
 		db.session.commit()
 	
 	else:
-		like = Like(user = current_user.id, post_id = post_id)
+		like = Like(user_id = current_user.id, post_id = post_id)
 		db.session.add(like)
 		db.session.commit()
 			
-	return redirect(url_for('views.like'))
+	return redirect('/home')
 
 #SIGNUP PAGE FOR SIGNING UP NEW USER
 @myapp_obj.route('/signup', methods=['POST', 'GET'])
