@@ -1,7 +1,7 @@
 from app import myapp_obj, db
 from flask import render_template, redirect, flash
 from app.forms import LoginForm, SignUpForm, PostForm, Delete_Account_Form, SearchForm, FollowForm, AcceptForm, RepostForm, MessageForm, DeletePostForm
-from app.models import User, Post, Follower, Message
+from app.models import User, Post, Follower, Message, Like
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import current_user
 from flask_login import login_required
