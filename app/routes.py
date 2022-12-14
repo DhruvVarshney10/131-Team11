@@ -42,6 +42,8 @@ def deletePost():
 	if current_form.validate_on_submit():
 		remove_post = Post.query.filter_by(id=current_form.post_id.data).first()
 		print(remove_post)
+		for l in Like.query.filter_by(post_id=remove_post.id):
+			db.session.delete(l)
 		db.session.delete(remove_post)
 		db.session.commit()
 		return redirect('/home')
@@ -199,11 +201,17 @@ def delete_account():
 
 		if current_user.check_password(current_form.password.data):
 			for post in current_user.posts.all():
+				for l in Like.query.filter_by(post_id=post.id):
+					db.session.delete(l)
 				db.session.delete(post)
 			for follows in Follower.query.filter_by(user_id=current_user.id):
 				db.session.delete(follows)
 			for follow_backs in Follower.query.filter_by(follower_id=current_user.id):
 				db.session.delete(follow_backs)
+			for messages_to in Message.query.filter_by(receiver_id=current_user.id):
+				db.session.delete(messages_to)
+			for messages_from in Message.query.filter_by(sender_username=current_user.username):
+				db.session.delete(messages_from)
 			db.session.delete(current_user)
 			db.session.commit()
 			print("The Account has been deleted")
