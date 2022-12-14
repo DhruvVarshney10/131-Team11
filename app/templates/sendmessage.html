@@ -6,16 +6,15 @@
 <link rel="stylesheet" href="static/global.css">
 <div class="form-container">
 	<form action="" method="POST" novalidate>
-		<div class="symbol"></div>
-		<div>
-			<img src="../static/twitter.png" alt="">
+		<div class="symbol">
+			<a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
 		</div>
 		<ul class="list">
 			{{form.hidden_tag()}}
 			<li><h2>Choose a recipient and write your message here!</h2></li>
 			<li>{{form.receiver_id}}<br></li>
 			<li>{{form.body}}<br></li>
-			<li>{{form.submit}}<br></li>
+			<button class="FollowButton" type="submit">Send</button>
 		</ul>
 	</form>
 </div>

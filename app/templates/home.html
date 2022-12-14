@@ -61,13 +61,20 @@
       {% endif %}
       <p>{{ Post.body }}<br></p>
       <div id='like'>
-        <a href="/like/{{Post.id}}"><img src="../static/like.png" width = "50" height = "50"></a>
+        <a href="/like/{{Post .id}}"><img src="../static/like.png" width = "50" height = "50"></a>
       </div>
       <form method="POST" action="{{ url_for('repost') }}">
       	<input type="hidden" value={{Post.id}} name="post">
       	{{form.hidden_tag()}}
         <button class="FollowButton" type="submit">Repost</button>
       </form>
+      {% if Post.user_id == userid %}
+      <form method="POST" action="{{ url_for('deletePost') }}">
+      	<input type="hidden" value={{Post.id}} name="post_id">
+      	{{form.hidden_tag()}}
+		<button class="FollowButton" type="submit">Delete</button>
+	 </form>
+     {% endif %}
     </div>
     {% endfor %}
     {% endblock %}

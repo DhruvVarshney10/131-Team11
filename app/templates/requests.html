@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
-
-{% block title %} - Follower Requests{% endblock %}
-
-{% block mycontent %}
-<link rel="stylesheet" href="static/global.css">
-<div class="form-container">
-	<ul class = "list">
-		<h2>Follower requests!</h2>
-		{% for u in users %}
-			<p>{{ u.username }} </p>
-			<form action="" method="POST">
-				<input id="username" name="username" type="hidden" value={{ u.id }}>
-				{{ form.hidden_tag() }}
-				<button type="submit">Accept</button>
-			</form>
-		{% endfor %}
-	</ul>
-{% endblock %}
+	{% block title %} - Follower Requests{% endblock %}
+	
+	{% block mycontent %}
+	<link rel="stylesheet" href="static/global.css">
+	<div class="form-container">
+		<div class="symbol">
+			<a href="/home"><img src="../static/Twitter_black.png" width = "160" height = "100"></a>
+		</div>
+		<ul class = "list">
+			<br><li><h2>Follower Requests</h2></li>
+			{% for u in users %}
+				<p>{{ u.username }} </p>
+				<form action="" method="POST">
+					<input id="username" name="username" type="hidden" value={{ u.id }}>
+					{{ form.hidden_tag() }}
+					<button class="FollowButton" type="submit">Accept</button>
+				</form>
+			{% endfor %}
+		</ul>
+	{% endblock %}

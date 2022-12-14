@@ -45,7 +45,7 @@
   2. Select a receiver from list of followers.
   3. Type a text in the box that needs to be sent. 
   4. Press send to send the text.
-  5. An error is displayed "User does no longer exist" (the message remains unsent).
+  5. The page refreshes and the receiver account is removed from the selectable list
 
 2. Adding an image to a post
 - **Pre-conditions:** User is logged in and is on the create a post tab.
@@ -63,7 +63,7 @@
 - **Alternate Sequence:** The image may not have a valid URL.
 
   1. Press the "create post" button.
-  2. An image is doesn't have a valid URL .
+  2. An image is doesn't have a valid URL.
   3. The post does not include the image. 
 
 3. Search users/Friends
@@ -131,16 +131,15 @@
 
 - **Pre-conditions:** User has an account, is logged in and has some posts on their account
 
-- **Trigger:** User clicks on the delete/edit button under the tweet.
+- **Trigger:** User clicks on the delete button under the tweet.
 
 - **Primary Sequence:**
 
   1. User completes the log-in procedure and redirected to their account's home page.
   2. On the home page the user can view their own posts.
-  3. The user clicks "Delete" to delete it.  
-  4. When the user selects "Delete" they will be asked - "Would you like to delete this post", and it will be deleted if "Yes" is selected.  
+  3. The user clicks "Delete" to delete it.    
 
-- **Primary Postconditions:** The tweet that is selected to be deleted is deleted from user's Home page
+- **Primary Postconditions:** The tweet that is selected to be deleted is deleted from user's Home page and posts database
 
 - **Alternate Sequence:** The user has not created any posts.
 
