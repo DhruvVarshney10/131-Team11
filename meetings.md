@@ -224,5 +224,5 @@ Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
 
 Team Updates:
 
-All just tested the website looked for any possible errors, worked on the final bug fixes and making ready to submit. 
+All just tested the website looked for any possible errors, worked on the final bug fixes and making it ready to submit. 
 
