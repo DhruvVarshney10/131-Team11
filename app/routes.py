@@ -230,21 +230,21 @@ def login():
 @myapp_obj.route('/like/<post_id>', methods=['POST', 'GET'])
 def like(post_id):
 	post = Post.query.filter_by(id = post_id)
-	like = Like.query.filter_by(user = current_user.id, post_id = post_id).first()
+	like = Like.query.filter_by(user_id = current_user.id, post_id = post_id).first()
 
 	if not post:
 		print("Post does not exist")
 	
 	elif like:
-		db.session.add(like)
+		db.session.delete(like)
 		db.session.commit()
 	
 	else:
-		like = Like(user = current_user.id, post_id = post_id)
+		like = Like(user_id = current_user.id, post_id = post_id)
 		db.session.add(like)
 		db.session.commit()
 			
-	return redirect(url_for('views.like'))
+	return redirect('/home')
 
 #SIGNUP PAGE FOR SIGNING UP NEW USER
 @myapp_obj.route('/signup', methods=['POST', 'GET'])
