@@ -215,3 +215,14 @@ Gunraj - working on Likes, testing and upddating meeting minutes
 Anchal and Dhruv - pair programming working on search, homepage layout. 
 
 All will continue to work on the project and study for final. 
+
+##2022-12-13 at 9:00 pm 
+
+Meeting Type : Virtual
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+All just tested the website looked for any possible errors, worked on the final bug fixes and making it ready to submit. 
+
