@@ -196,4 +196,22 @@ Basic 4 reqs funtional, finals scedule discuss. Next meeting on the weekend.
 Pair programming - Anchal & Dhruv working on the friends/followers and search, Ari and Gunraj working on the friend request, like and search as well.  
 
 
-All are preparing for finals and will continue to work on the project in between, next meeting disucss like, comment and edit.  
+All are preparing for finals and will continue to work on the project in between, next meeting disucss like, comment and edit. 
+
+##2022-12-11 at 10:00 pm 
+
+Meeting Type : Virtual
+
+Attendees: Dhruv Varshney, Anchal Mandavia, Gunraj Singh, Ari Grady
+
+Team Updates:
+
+Messages, Repost, Images Followers seem to be functionally working
+
+Ari - Working on delete a tweet, and fixing minor bugs in repost 
+
+Gunraj - working on Likes, testing and upddating meeting minutes
+
+Anchal and Dhruv - pair programming working on search, homepage layout. 
+
+All will continue to work on the project and study for final. 
