@@ -283,6 +283,5 @@ def signup():
 #STANDARD PAGE, LEADS TO LOGIN IF NOT SIGNED IN
 @myapp_obj.route('/')
 def start():
-	db.create_all()
 	return redirect('/home')
 
