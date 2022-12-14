@@ -42,6 +42,8 @@ def deletePost():
 	if current_form.validate_on_submit():
 		remove_post = Post.query.filter_by(id=current_form.post_id.data).first()
 		print(remove_post)
+		for l in Like.query.filter_by(post_id=remove_post.id):
+			db.session.delete(l)
 		db.session.delete(remove_post)
 		db.session.commit()
 		return redirect('/home')
@@ -199,6 +201,8 @@ def delete_account():
 
 		if current_user.check_password(current_form.password.data):
 			for post in current_user.posts.all():
+				for l in Like.query.filter_by(post_id=post.id):
+					db.session.delete(l)
 				db.session.delete(post)
 			for follows in Follower.query.filter_by(user_id=current_user.id):
 				db.session.delete(follows)
