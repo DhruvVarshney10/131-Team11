@@ -1,20 +1,20 @@
 body {
-	background-color:rgb(38,48,55)
+  background-color:rgb(38,48,55)
 }
 
 #posts {
-	position: fixed; top:50px; 
-	color: #000000;
-	font-size: 30px;
+  position: fixed; top:50px; 
+  color: #ffffff;
+  font-size: 30px;
 }
 
 #post-container {
-	/* Available to contain each post */
+  /* Available to contain each post */
 }
 
 #tweet-wrap {
   max-width: 500px;
-  background: rgb(255, 255, 255);
+  background: rgb(0, 0, 0);
   margin: 0 auto;
   margin-top: 50px;
   border-radius:3px;
@@ -26,19 +26,19 @@ body {
 #tweet-wrap span {
   font-weight:bold;
   font-size: 20px;
-  color: #000000;
+  color: #ffffff;
 }
 
 #tweet-wrap a {
   font-weight:bold;
   font-size: 15px;
-  color: #000000;
+  color: #ffffff;
 }
 
 #tweet-wrap p{
   font-weight:normal;
   margin-top: 10px;
-  color: #000000;
+  color: #ffffff;
 }
 
 #header {
@@ -88,7 +88,7 @@ body {
   position: fixed; left: 94.25%; top: 0.5%;
 }
 
-.FollowButton{
+.FollowButton {
   background-color: rgb(24, 170, 255);
   color: rgb(0, 0, 0);
   padding: 7px 15px;
@@ -97,4 +97,29 @@ body {
   font-size: 70%;
   margin-bottom: 30px;
   text-decoration-line: none;
+}
+
+.repost {
+  background-color: rgb(24, 170, 255);
+  color: rgb(0, 0, 0);
+  padding: 7px 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 70%;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-decoration-line: none;
+  display: inline;
+}
+
+.delete {
+  background-color: rgb(24, 170, 255);
+  color: rgb(0, 0, 0);
+  padding: 7px 15px;
+  border-radius: 5px;
+  border: none;
+  font-size: 70%;
+  margin-bottom: 30px;
+  text-decoration-line: none;
+  display: inline;
 }

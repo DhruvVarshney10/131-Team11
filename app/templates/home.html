@@ -61,8 +61,7 @@
       {% endif %}
       <p>{{ Post[0].body }}<br></p>
       <div id='like'>
-        <p>{{a}}</p>
-        <p>{{Post[1]}}</p>
+        <p>Likes: {{Post[1]}}</p>
         <a href="/like/{{Post[0].id}}"><img src="../static/like.png" width = "50" height = "50"></a>
       </div>
       <form method="POST" action="{{ url_for('repost') }}">
